@@ -206,6 +206,37 @@ These atomic records are limited to explicit, software-relevant obligations in C
 | SAM-06-026 | Close the monthly income account at the end of each fiscal year. | School | 6.1.1.4, p. 12 | VERIFIED |
 | SAM-06-027 | Use the fee register when collecting fees from students. | School | 6.1.1.5, p. 12 | VERIFIED |
 
+| SAM-06-028 | Record every cash receipt under its related income heading. | — | 6.1, p. 11 | VERIFIED |
+| SAM-06-029 | Record income earned within a fiscal year but not yet received in cash as income receivable. | — | 6.1, p. 11 | VERIFIED |
+| SAM-06-030 | Record expenditure of amounts approved by the authorized officer on the cash basis. | — | 6.1, p. 11 | VERIFIED |
+| SAM-06-031 | Where an obligation to make an expenditure has arisen but the bill or payment voucher has not been received, show the amount as a payment liability and record the financial transaction. | — | 6.1, p. 11 | VERIFIED |
+| SAM-06-032 | Conduct expenditure-related financial transactions within the budget approved by the School Management Committee, within delegated authority, and in accordance with prevailing acts, rules, and law. | School | 6.1.2, p. 13 | VERIFIED |
+| SAM-06-033 | Verify expenditure-supporting documents, including bills, payment vouchers, approved orders, and other required evidence; preserve them in order and attach them to the general voucher. | School | 6.1.2, p. 13 | VERIFIED |
+| SAM-06-034 | Spend only in the budget and programme for which money has been allocated. | School | 6.1.2, p. 13 | VERIFIED |
+| SAM-06-035 | Obtain the approval and order of the officer with spending authority before spending budget amounts. | School | 6.1.2, p. 13 | VERIFIED |
+| SAM-06-036 | Do not spend more than the amount allocated under an expenditure heading. | School | 6.1.2, p. 13 | VERIFIED |
+| SAM-06-037 | Deduct taxes that must be withheld under prevailing rules before making payment. | School | 6.1.2, p. 13 | VERIFIED |
+| SAM-06-038 | Conduct the school's financial transactions only through a bank. | School | 6.1.2, p. 13 | VERIFIED |
+| SAM-06-039 | Carry out procurement in compliance with the Public Procurement Act, 2063 and Public Procurement Regulations, 2064, and make procurement payments by account-payee cheque. | School | 6.1.2, p. 13 | VERIFIED |
+| SAM-06-040 | Attach the purchase order, receipt/entry report, and related documents when paying for purchased goods. | School | 6.1.2, p. 13 | VERIFIED |
+| SAM-06-041 | Attach proof that the relevant body has passed the salary report when paying teachers' or staff salaries. | School | 6.1.2, p. 13 | VERIFIED |
+| SAM-06-042 | Raise an expenditure general voucher for expenditure-related transactions and record the expenditure under the related heading according to the debit-credit rules. | School | 6.1.2.1, p. 13 | VERIFIED |
+| SAM-06-043 | Number expenditure general vouchers sequentially for each fiscal year's expenditure transactions, beginning with voucher number 1 at the beginning of Shrawan. | School | 6.1.2.1, p. 13 | VERIFIED |
+| SAM-06-044 | Enter every expenditure-related transaction in the monthly expenditure account according to the general voucher. | School | 6.1.2.2, p. 13 | VERIFIED |
+| SAM-06-045 | Prepare a monthly expenditure report by expenditure heading from the monthly expenditure account. | School | 6.1.2.2, p. 13 | VERIFIED |
+| SAM-06-046 | Carry cumulative expenditure through the preceding month forward into the current month's expenditure amount in sequence. | School | 6.1.2.2, p. 13 | VERIFIED |
+| SAM-06-047 | Close the monthly expenditure account at the end of each fiscal year. | School | 6.1.2.2, p. 13 | VERIFIED |
+| SAM-06-048 | After raising a general voucher, enter income, expenditure, advances, advance settlement, deductions, and other transactions in the bank cash book. | School | 6.1.2.3, p. 14 | VERIFIED |
+| SAM-06-049 | Use the bank cash book to show the actual status of the school's income, expenditure, release amounts, advances, and deductible amounts. | School | 6.1.2.3, p. 14 | VERIFIED |
+| SAM-06-050 | Prepare the bank cash book monthly. | School | 6.1.2.3, p. 14 | VERIFIED |
+| SAM-06-051 | Post general-voucher details to the budget account. | School | 6.1.2.4, p. 14 | VERIFIED |
+| SAM-06-052 | Post the school's approved budget and supplementary budget to budget headings in the budget account. | School | 6.1.2.4, p. 14 | VERIFIED |
+| SAM-06-053 | Post money deposited in the school fund and money released by the local level or another relevant body to the release heading in the budget account. | School | 6.1.2.4, p. 14 | VERIFIED |
+| SAM-06-054 | Post expenditure general vouchers to expenditure headings in the budget account in serial-number order. | School | 6.1.2.4, p. 14 | VERIFIED |
+| SAM-06-055 | Prepare the budget account monthly. | School | 6.1.2.4, p. 14 | VERIFIED |
+| SAM-06-056 | Prepare the expenditure statement monthly on the basis of the budget account. | School | 6.1.2.5, p. 14 | VERIFIED |
+| SAM-06-057 | Use the expenditure statement to provide the head teacher and School Management Committee with the budget position for budget-related decisions. | School | 6.1.2.5, p. 14 | VERIFIED |
+
 ## Forms index
 
 Form rows index form titles only; the source is Chapter 10's forms register. Form contents, fields, timing, and routing remain unextracted.
