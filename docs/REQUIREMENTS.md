@@ -275,6 +275,93 @@ These atomic records are limited to explicit, software-relevant obligations in C
 | SAM-06-092 | For a transfer exceeding 20 percent, or for a transfer from recurrent expenditure to capital expenditure, submit the matter to the School Management Committee and implement it according to its decision. | — | 6.3, p. 16 | VERIFIED |
 | SAM-06-093 | Do not transfer amounts from capital expenditure to recurrent expenditure. | — | 6.3, p. 16 | VERIFIED |
 
+### SAM-07
+
+| ID | Requirement | Responsible actor | Source section/page | Status |
+| --- | --- | --- | --- | --- |
+| SAM-07-001 | After recording annual financial transactions in the budget account, bank cash book, and other required accounts, prepare annual account books and prescribed financial reports and send them to the prescribed bodies within the prescribed time. | School | Chapter 7, p. 17 | VERIFIED |
+| SAM-07-002 | Reconcile monthly, four-monthly, and annual financial reports with one another. | School | Chapter 7, p. 17 | VERIFIED |
+| SAM-07-003 | Prepare and submit the monthly income/expenditure report within seven days after the month has passed. | School | 7.1, p. 17 | VERIFIED |
+| SAM-07-004 | Prepare and submit the four-monthly income/expenditure report within fifteen days after the four-month period has passed. | School | 7.1, p. 17 | VERIFIED |
+| SAM-07-005 | Prepare and submit the annual income/expenditure report within thirty days after the fiscal year has ended. | School | 7.1, p. 17 | VERIFIED |
+| SAM-07-006 | Prepare annual financial reports and send them to the relevant body within one month after the fiscal year has ended. | School | 7.2, p. 17 | VERIFIED |
+| SAM-07-007 | Prepare annual reports separately by budget subheading. | School | 7.2, p. 18 | VERIFIED |
+| SAM-07-008 | Prepare additional annual reports when required by a relevant body, in the manner it specifies. | School | 7.2, p. 18 | VERIFIED |
+| SAM-07-009 | Prepare a balance sheet within one month after the fiscal year has ended. | School | 7.3, p. 18 | VERIFIED |
+| SAM-07-010 | Use the balance sheet to show the actual state of the school's assets and liabilities. | School | 7.3, p. 18 | VERIFIED |
+| SAM-07-011 | Include fixed assets, investments, properties, financial assets (advances and deposits), inventory, cash and bank, payable amounts, funds, and reserves in the balance sheet. | School | 7.3, p. 18 | VERIFIED |
+
+### SAM-08
+
+| ID | Requirement | Responsible actor | Source section/page | Status |
+| --- | --- | --- | --- | --- |
+| SAM-08-001 | Classify school-owned physical goods and assets as current or capital assets. | School | Chapter 8, p. 19 | VERIFIED |
+| SAM-08-002 | Treat inventory/assets usable within one year or for less than one year as current assets or consumable inventory, and assets usable for more than one year or repeatedly as capital assets or non-consumable inventory/assets. | School | Chapter 8, p. 19 | VERIFIED |
+| SAM-08-003 | Ensure the security of inventory and physical assets. | School Management Committee and head teacher | Chapter 8, p. 19 | VERIFIED |
+| SAM-08-004 | Maintain records of all inventory and assets owned by the school. | School | Chapter 8, p. 19 | VERIFIED |
+| SAM-08-005 | Maintain separate accounts for consumable and non-consumable inventory/assets. | School | Chapter 8, p. 19 | VERIFIED |
+| SAM-08-006 | Arrange physical protection and preservation of recorded inventory and assets. | School | Chapter 8, p. 19 | VERIFIED |
+| SAM-08-007 | Where a fixed asset received by purchase, donation, or transfer has no stated value, coordinate with the relevant local level, form a valuation committee as directed, determine its value from the committee's valuation, and record it. | School | Chapter 8, p. 19 | VERIFIED |
+| SAM-08-008 | Pack inventory and assets properly when moving them so they are not damaged. | School | Chapter 8, p. 19 | VERIFIED |
+| SAM-08-009 | Do not allow unauthorized persons to use school property for personal work. | School | Chapter 8, p. 19 | VERIFIED |
+| SAM-08-010 | Repair repairable inventory in time and return it to use; for inventory that cannot be used even after repair, follow the legal process for auction sale. | School | Chapter 8, p. 19 | VERIFIED |
+| SAM-08-011 | Register land remaining to be registered in the school's name under the legal process and maintain its record in the school's name. | School | Chapter 8, p. 20 | VERIFIED |
+| SAM-08-012 | Prevent school land from being mortgaged and use it for the maximum benefit of the school. | School | Chapter 8, p. 20 | VERIFIED |
+| SAM-08-013 | Where income due from school land remains unpaid, follow the required process to recover it. | School | Chapter 8, p. 20 | VERIFIED |
+| SAM-08-014 | Arrange use of school land and property for school expansion and physical development. | School | Chapter 8, p. 20 | VERIFIED |
+| SAM-08-015 | Do not sell or mortgage school land except as provided by law, and do not surrender school land except with Government of Nepal approval. | School | Chapter 8, p. 20 | VERIFIED |
+| SAM-08-016 | Keep inventory and asset records current and correct, and submit monthly/annual reports to the relevant body within the prescribed time. | School | 8.1, p. 20 | VERIFIED |
+| SAM-08-017 | Update fixed-asset records with appropriate identification codes based on the property's storage location and identification needs, and maintain cost records. | School | 8.1, p. 20 | VERIFIED |
+| SAM-08-018 | Include the value of land, buildings, furniture, machinery/equipment, and vehicles in the annual balance sheet. | School | 8.1, p. 20 | VERIFIED |
+| SAM-08-019 | Obtain approval from the authorized officer after submitting a requisition form before buying required inventory from stock or the market. | School | 8.1.1, p. 20 | VERIFIED |
+| SAM-08-020 | Purchase inventory from the market under an approved requisition form only after preparing a purchase order and obtaining the authorized officer's written approval. | School | 8.1.2, pp. 20-21 | VERIFIED |
+| SAM-08-021 | Prepare the purchase order in triplicate; give two copies to the supplier and attach the supplier's bill and one certified purchase-order copy to the payment register. | School | 8.1.2, p. 21 | VERIFIED |
+| SAM-08-022 | Number and file purchase orders sequentially by date, beginning each fiscal year's orders with number 1 in Shrawan. | School | 8.1.2, p. 21 | VERIFIED |
+| SAM-08-023 | Prepare a receipt/entry report to record as income inventory purchased under a purchase order or received from government, local level, another institution, donor, or transfer. | School | 8.1.3, p. 21 | VERIFIED |
+| SAM-08-024 | For transferred inventory, certify the receipt/entry report through the head teacher, send a copy to the providing body or institution, and retain a copy in the inventory register. | School; head teacher | 8.1.3, p. 21 | VERIFIED |
+| SAM-08-025 | Number receipt/entry reports sequentially by date, beginning each fiscal year's first report with number 1 in Shrawan. | School | 8.1.3, p. 21 | VERIFIED |
+| SAM-08-026 | After preparing the receipt/entry report for non-consumable inventory received by purchase or transfer, record it in the non-consumable inventory account and maintain a separate page for each item. | School | 8.1.4, p. 21 | VERIFIED |
+| SAM-08-027 | Use the subsidiary inventory account for non-consumable inventory issued for use according to its work nature. | School | 8.1.4, p. 21 | VERIFIED |
+| SAM-08-028 | Inspect non-consumable inventory annually to determine its actual condition. | School | 8.1.4, p. 21 | VERIFIED |
+| SAM-08-029 | After preparing the receipt/entry report for consumable inventory received by purchase or transfer, record it in the consumable inventory account. | School | 8.1.5, pp. 21-22 | VERIFIED |
+| SAM-08-030 | Maintain a separate consumable inventory account for each fiscal year, state the remaining balance, and keep the stated stock physically in the store. | School | 8.1.5, p. 22 | VERIFIED |
+| SAM-08-031 | After the end of Ashar, record the remaining consumable inventory as the opening balance before using it in the following fiscal year. | School | 8.1.5, p. 22 | VERIFIED |
+| SAM-08-032 | Maintain a land/building cost book for land and buildings owned or controlled by the school. | School | 8.1.6, p. 22 | VERIFIED |
+| SAM-08-033 | Prepare a transfer form when inventory is received by transfer from, or transferred to, another government/non-government body or person. | School | 8.1.7, p. 22 | VERIFIED |
+| SAM-08-034 | Transfer school inventory only after a School Management Committee decision. | School Management Committee | 8.1.7, p. 22 | VERIFIED |
+| SAM-08-035 | State the physical condition of inventory when it is transferred or received by transfer. | School | 8.1.7, p. 22 | VERIFIED |
+| SAM-08-036 | Within seven days after the fiscal year ends, prepare the annual inventory-stock and physical-condition statement, send it to the relevant body with other annual reports, and retain a copy in the school's inventory register. | School | 8.1.8, p. 22 | VERIFIED |
+| SAM-08-037 | Within one month after the fiscal year ends, have the head teacher decide to designate a senior teacher in writing for inventory inspection. | Head teacher | 8.1.9, p. 22 | VERIFIED |
+| SAM-08-038 | Prepare the inventory inspection form and submit it to the senior teacher designated for inspection. | Accounts staff member/teacher | 8.1.9, p. 22 | VERIFIED |
+| SAM-08-039 | Conduct an on-site inspection of the physical quantity and condition of inventory, and submit an inventory-inspection report with findings to the head teacher. | Designated senior teacher | 8.1.9, p. 22 | VERIFIED |
+
+### SAM-09
+
+| ID | Requirement | Responsible actor | Source section/page | Status |
+| --- | --- | --- | --- | --- |
+| SAM-09-001 | Establish effective internal control while using school resources, sources, and inventory/assets to the maximum benefit. | School | Chapter 9, p. 23 | VERIFIED |
+| SAM-09-002 | Inform the public of the school's annual activities through an annual social audit. | School | Chapter 9, p. 23 | VERIFIED |
+| SAM-09-003 | Arrange timely audit of each fiscal year's income and expenditure accounts in accordance with the applicable acts, rules, laws, and directives, and settle any audit irregularity immediately. | School | Chapter 9, p. 23 | VERIFIED |
+| SAM-09-004 | Conduct financial transactions economically, efficiently, and effectively. | School | 9.1, p. 23 | VERIFIED |
+| SAM-09-005 | Keep financial-transaction records and reports reliable and maximize use of school resources and means. | School | 9.1, p. 23 | VERIFIED |
+| SAM-09-006 | Comply with prevailing acts, rules, and law, and increase financial transparency and accountability. | School | 9.1, p. 23 | VERIFIED |
+| SAM-09-007 | Prepare and implement an internal-control work plan. | School | 9.1, p. 23 | VERIFIED |
+| SAM-09-008 | Prepare an internal-control work plan under prevailing acts, rules, and law; obtain School Management Committee approval; and implement it. | Community school; School Management Committee | 9.2, p. 23 | VERIFIED |
+| SAM-09-009 | Monitor and evaluate implementation of the approved internal-control work plan from time to time. | School Management Committee | 9.2, p. 23 | VERIFIED |
+| SAM-09-010 | Include the school's complete activities in the internal-control work plan. | School | 9.2, p. 23 | VERIFIED |
+| SAM-09-011 | Include in the internal-control work plan arrangements to keep financial-transaction books and records correct under law. | School | 9.2, p. 24 | VERIFIED |
+| SAM-09-012 | Include in the internal-control work plan timely submission of monthly, four-monthly, and annual reports to the relevant body. | School | 9.2, p. 24 | VERIFIED |
+| SAM-09-013 | Include in the internal-control work plan verification of report reliability. | School | 9.2, p. 24 | VERIFIED |
+| SAM-09-014 | Form an eleven-member Teacher-Parent Association executive committee, including the School Management Committee chairperson, head teacher, at least one teacher, and parents, through a parents' general meeting; its term is three years. | School Management Committee | 9.3, p. 24 | VERIFIED |
+| SAM-09-015 | Conduct an annual social audit to evaluate whether community-school activities comply with prevailing acts, rules, and law. | Community school | 9.4, p. 25 | VERIFIED |
+| SAM-09-016 | Audit the school's financial transactions in accordance with the Education Act, 2028, Education Regulations, 2059, and Local Government Operation Act, 2074. | School | 9.5, p. 25 | VERIFIED |
+| SAM-09-017 | Provide the documents and information requested by the appointed auditor in time. | Head teacher and accounts staff member/teacher | 9.5, p. 25 | VERIFIED |
+| SAM-09-018 | Provide a factual response to every audit irregularity identified by the auditor. | Concerned stakeholders | 9.5, p. 25 | VERIFIED |
+| SAM-09-019 | Arrange discussion between the auditor and School Management Committee office holders on the school's income and expenditure when the auditor wishes to do so. | School | 9.5, p. 25 | VERIFIED |
+| SAM-09-020 | Make the audit report received from the auditor public in the Teacher-Parent Association meeting and send it to the local level and other prescribed bodies. | Head teacher | 9.5, p. 25 | VERIFIED |
+| SAM-09-021 | Maintain separate fiscal-year files of audit irregularities and settle them in time. | Head teacher and accounts staff member/teacher | 9.5, p. 25 | VERIFIED |
+| SAM-09-022 | In the auditor-selection conditions, require evaluation of the settlement status of irregularities identified in the preceding audit and require that status to be stated in the audit report. | School | 9.5, p. 25 | VERIFIED |
+
 ## Forms index
 
 Form rows index form titles only; the source is Chapter 10's forms register. Form contents, fields, timing, and routing remain unextracted.
