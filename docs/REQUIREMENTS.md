@@ -237,6 +237,31 @@ These atomic records are limited to explicit, software-relevant obligations in C
 | SAM-06-056 | Prepare the expenditure statement monthly on the basis of the budget account. | School | 6.1.2.5, p. 14 | VERIFIED |
 | SAM-06-057 | Use the expenditure statement to provide the head teacher and School Management Committee with the budget position for budget-related decisions. | School | 6.1.2.5, p. 14 | VERIFIED |
 
+| SAM-06-058 | Prepare the schedule of advances pending settlement each month on the basis of the advance subsidiary account. | School | 6.1.2.6, p. 14 | VERIFIED |
+| SAM-06-059 | Show the status of advances and advance settlement in the schedule of advances pending settlement. | School | 6.1.2.6, p. 14 | VERIFIED |
+| SAM-06-060 | Ensure that the amounts in the schedule of advances pending settlement agree with the advance and advance-settlement columns of the bank cash book. | School | 6.1.2.6, p. 14 | VERIFIED |
+| SAM-06-061 | Reconcile the bank balance shown in the bank cash book with the balance shown in the bank statement and prepare a bank-reconciliation statement each month. | School | 6.1.2.7, pp. 14-15 | VERIFIED |
+| SAM-06-062 | Obtain a bank statement each month for bank-balance reconciliation. | School | 6.1.2.7, p. 14 | VERIFIED |
+| SAM-06-063 | Where the bank cash book and bank statement show different balances, clearly state the reason for the difference and adjust the school account. | School | 6.1.2.7, pp. 14-15 | VERIFIED |
+| SAM-06-064 | Prepare a trial balance monthly to determine whether income and expenditure accounting records agree. | School | 6.1.2.8, p. 15 | VERIFIED |
+| SAM-06-065 | Ensure that the total debit column equals the total credit column in the trial balance. | School | 6.1.2.8, p. 15 | VERIFIED |
+| SAM-06-066 | Prepare a trial balance before preparing monthly and annual financial reports to ensure their accuracy. | School | 6.1.2.8, p. 15 | VERIFIED |
+| SAM-06-067 | Record in the advance subsidiary account every advance made, under a decision or rule, to a teacher, staff member, person, or institution for purchasing goods, construction work, or other work, as stated in the general voucher. | School | 6.1.2.9, p. 15 | VERIFIED |
+| SAM-06-068 | Maintain a separate folio in the advance subsidiary account for each person or institution. | School | 6.1.2.9, p. 15 | VERIFIED |
+| SAM-06-069 | Record advance settlement in the advance subsidiary account once an advance is settled according to rules. | School | 6.1.2.9, p. 15 | VERIFIED |
+| SAM-06-070 | Use the advance subsidiary account both when an advance is given and when it is settled. | School | 6.1.2.9, p. 15 | VERIFIED |
+| SAM-06-071 | Record in the general deposit account every amount received as a security deposit for work or as a deposit from a person or institution. | School | 6.1.2.10, p. 15 | VERIFIED |
+| SAM-06-072 | Raise a general voucher when a deposit is received and when it is refunded. | School | 6.1.2.10, p. 15 | VERIFIED |
+| SAM-06-073 | Refund a deposit to the relevant person or institution according to rules after the work is completed or the period has ended. | School | 6.1.2.10, p. 15 | VERIFIED |
+| SAM-06-074 | Do not spend a deposit held by the school on other work. | School | 6.1.2.10, p. 15 | VERIFIED |
+| SAM-06-075 | For a long-standing deposit that has not been claimed by the relevant person or institution, or whose payee cannot be identified, follow the prescribed legal process, recognize the amount as income, and deposit it into the school fund. | School | 6.1.2.10, p. 15 | VERIFIED |
+| SAM-06-076 | Record each deposit received by the school according to rules in the individual deposit account. | School | 6.1.2.11, p. 15 | VERIFIED |
+| SAM-06-077 | Record each deposit refund in the individual deposit account. | School | 6.1.2.11, p. 15 | VERIFIED |
+| SAM-06-078 | Prepare the deposit financial statement by the seventh day of each month, when a balance remains in the school's deposit account, using the bank's deposit-account statement. | School | 6.1.2.12, p. 15 | VERIFIED |
+| SAM-06-079 | Use the deposit financial statement to ascertain the actual deposit balance. | School | 6.1.2.12, p. 15 | VERIFIED |
+| SAM-06-080 | Ensure that the bank balance shown in the general deposit account equals the bank balance shown by the bank. | School | 6.1.2.12, pp. 15-16 | VERIFIED |
+| SAM-06-081 | Where those deposit-account balances differ, clearly state the reason for the difference. | School | 6.1.2.12, p. 16 | VERIFIED |
+
 ## Forms index
 
 Form rows index form titles only; the source is Chapter 10's forms register. Form contents, fields, timing, and routing remain unextracted.
