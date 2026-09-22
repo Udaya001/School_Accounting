@@ -147,6 +147,37 @@ These atomic records are limited to explicit, software-relevant obligations in C
 | SAM-03-003 | Record every school expenditure transaction under an expenditure heading. | — | 3.2, p. 8 | VERIFIED |
 | SAM-03-004 | Apply the expenditure-code classification and explanation in Annex 2 when recording expenditure. | — | 3.2, p. 8 | VERIFIED |
 
+### SAM-04
+
+| ID | Requirement | Responsible actor | Source section/page | Status |
+| --- | --- | --- | --- | --- |
+| SAM-04-001 | Identify the income and expenditure sources expected for the coming fiscal year and prepare the annual budget and programme on that basis. | Head teacher | Chapter 4, p. 9 | VERIFIED |
+| SAM-04-002 | Use the preceding fiscal year's actual income and expenditure and the current fiscal year's revised income and expenditure when preparing the income and expenditure budget. | Head teacher | Chapter 4, p. 9 | VERIFIED |
+| SAM-04-003 | Allocate budget amounts according to the income-code and expenditure-code classifications. | Head teacher | Chapter 4, p. 9 | VERIFIED |
+| SAM-04-004 | Present the coming fiscal year's annual income/expenditure budget and programme to the School Management Committee and have them approved by the end of Ashar of the current fiscal year. | Head teacher; School Management Committee | Chapter 4, p. 9 | VERIFIED |
+| SAM-04-005 | Prepare the annual income estimate after identifying expected income from internal income, federal government, provincial government, local level, and other institutions. | School | 4.1, p. 9 | VERIFIED |
+| SAM-04-006 | Prepare the income estimate by income heading in accordance with the income-code classification and explanation, using the preceding fiscal year's actual income and the current fiscal year's revised income estimate. | School | 4.1, p. 9 | VERIFIED |
+| SAM-04-007 | Identify regular and capital expenditure required for the coming fiscal year and prepare the expenditure estimate on that basis. | School | 4.2, p. 9 | VERIFIED |
+| SAM-04-008 | Prepare the expenditure estimate by expenditure heading in accordance with the expenditure-code classification and explanation, using the preceding fiscal year's actual expenditure and the current fiscal year's revised expenditure estimate. | School | 4.2, p. 9 | VERIFIED |
+| SAM-04-009 | Show amounts allocated to each expenditure heading accurately in the expenditure estimate. | School | 4.2, p. 9 | VERIFIED |
+| SAM-04-010 | Do not prepare a deficit budget in which the expenditure estimate exceeds the income estimate. | School | 4.2, p. 9 | VERIFIED |
+| SAM-04-011 | Use the Annual Budget Form (Form 1) and its prescribed method of use for income/expenditure budget preparation. | — | Chapter 4, p. 9 | VERIFIED |
+
+### SAM-05
+
+| ID | Requirement | Responsible actor | Source section/page | Status |
+| --- | --- | --- | --- | --- |
+| SAM-05-001 | Request budget release monthly or four-monthly, under the guidance issued by the relevant local level, for grants received from federal, provincial, and local levels for school operation. | School | Chapter 5, p. 10 | VERIFIED |
+| SAM-05-002 | For the first four-monthly budget-release request, submit a copy of the approved annual budget and programme to the relevant local level. | School | Chapter 5(a), p. 10 | VERIFIED |
+| SAM-05-003 | For the first four-monthly budget-release request, submit the preceding fiscal year's income/expenditure details and expenditure statement to the relevant local level. | School | Chapter 5(a), p. 10 | VERIFIED |
+| SAM-05-004 | Submit the name list of teachers and staff and the form showing the monthly salary amount claimed when requesting budget release. | School | Chapter 5(b), p. 10 | VERIFIED |
+| SAM-05-005 | Submit a completed Teacher Salary Request Form when requesting monthly teacher salary funds. | School | Chapter 5(b), p. 10 | VERIFIED |
+| SAM-05-006 | For the second and third four-monthly budget-release requests, submit expenditure details through the preceding month. | School | Chapter 5(c), p. 10 | VERIFIED |
+| SAM-05-007 | For the third four-monthly budget-release request, submit the preceding fiscal year's audit report in addition to the expenditure details. | School | Chapter 5(d), p. 10 | VERIFIED |
+| SAM-05-008 | Make budget-release requests according to instructions issued from time to time by the relevant local level or competent body, and comply with those instructions. | School | Chapter 5(e), p. 10 | VERIFIED |
+| SAM-05-009 | When requesting budget release from the local level, use the format prescribed by that local level. | School | Chapter 5(f), p. 10 | VERIFIED |
+| SAM-05-010 | Use the prescribed Budget Release Request Letter template (Form 39) for a budget-release request letter. | School | Chapter 5(f), p. 10 | VERIFIED |
+
 ## Forms index
 
 Form rows index form titles only; the source is Chapter 10's forms register. Form contents, fields, timing, and routing remain unextracted.
