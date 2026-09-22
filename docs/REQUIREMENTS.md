@@ -94,6 +94,59 @@ Sources below use the manual's printed page numbers. Prefixes are permanent iden
 | SAM-ANN-03 | Annex 3 - Forms list and use method | 41-57 | TO_EXTRACT |
 | SAM-ANN-04 | Annex 4 - Practical accounting knowledge, exercises, and samples | 58-end | TO_EXTRACT |
 
+## Verified requirements: Chapters 1-3
+
+These atomic records are limited to explicit, software-relevant obligations in Chapters 1-3. An em dash in **Responsible actor** means the manual does not state one.
+
+### SAM-01
+
+| ID | Requirement | Responsible actor | Source section/page | Status |
+| --- | --- | --- | --- | --- |
+| SAM-01-001 | Prepare periodic financial statements in accordance with accounting standards. | School | 1.2, p. 1 | VERIFIED |
+| SAM-01-002 | Show the actual assets and liabilities as of the financial-statement preparation date, together with operating results, in the financial statement. | School | 1.2, p. 1 | VERIFIED |
+| SAM-01-005 | Record both flows of a transaction under the debit-credit rule. | — | 1.2.2, p. 3 | VERIFIED |
+| SAM-01-006 | For a personal account, debit the receiver and credit the giver. | — | 1.2.2, p. 3 | VERIFIED |
+| SAM-01-007 | For a real account, debit what comes in and credit what goes out. | — | 1.2.2, p. 3 | VERIFIED |
+| SAM-01-008 | For a nominal account, debit expenses and losses and credit income, savings, and profit. | — | 1.2.2, p. 3 | VERIFIED |
+| SAM-01-009 | Select debit and credit accounts according to the nature of each transaction. | — | 1.2.2, p. 4 | VERIFIED |
+| SAM-01-010 | Apply the stated debit-credit rules in reverse when entering an adjustment voucher. | — | 1.2.2, p. 4 | VERIFIED |
+| SAM-01-011 | Treat a negative bank balance as credit and a positive bank balance as debit for adjustment-voucher entry. | — | 1.2.2, p. 4 | VERIFIED |
+| SAM-01-012 | Hold an annual meeting of donors and parents, present the preceding academic year's income and expenditure, and approve the next fiscal year's annual budget and programme. | School Management Committee | 1.3.1, p. 5 | VERIFIED |
+| SAM-01-013 | Prepare the next fiscal year's annual budget and programme on time and present them to the School Management Committee. | Head teacher | 1.3.2, p. 5 | VERIFIED |
+| SAM-01-014 | After receiving delegated budget allocation and spending authority, spend within the approved budget and according to rules. | Head teacher | 1.3.2, p. 5 | VERIFIED |
+| SAM-01-015 | Operate the school bank account through the joint signatures of the head teacher and the accounts staff member/teacher. | Head teacher and accounts staff member/teacher | 1.3.2, p. 6 | VERIFIED |
+| SAM-01-016 | Keep financial-transaction records organized, correct, and secure. | Head teacher | 1.3.2, p. 6 | VERIFIED |
+| SAM-01-017 | Arrange timely audit of all financial-transaction records. | Head teacher | 1.3.2, p. 6 | VERIFIED |
+| SAM-01-018 | Record inventory at the prescribed cost and maintain, protect, and inspect it. | Head teacher | 1.3.2, p. 6 | VERIFIED |
+| SAM-01-019 | Keep an account of expenditure from released funds. | Accounts staff member/teacher | 1.3.3, p. 6 | VERIFIED |
+| SAM-01-020 | Prepare expenditure statements and financial statements within the prescribed time. | Accounts staff member/teacher | 1.3.3, p. 6 | VERIFIED |
+| SAM-01-021 | Obtain the head teacher's approval/certification of expenditure statements and financial statements, then submit them to the relevant local body on time. | Accounts staff member/teacher; head teacher | 1.3.3, p. 6 | VERIFIED |
+| SAM-01-022 | Maintain a register of audit irregularities and retain evidence for their settlement. | Accounts staff member/teacher | 1.3.3, p. 6 | VERIFIED |
+| SAM-01-023 | Where documents or formalities required by prevailing law are incomplete for a payment, state the reason in writing to the head teacher and act on the head teacher's written order. | Accounts staff member/teacher; head teacher | 1.3.3, p. 6 | VERIFIED |
+
+### SAM-02
+
+| ID | Requirement | Responsible actor | Source section/page | Status |
+| --- | --- | --- | --- | --- |
+| SAM-02-001 | Maintain one school fund for each school. | School | 2.1, p. 7 | VERIFIED |
+| SAM-02-002 | Deposit every type of school income into the school fund. | School | 2.1, p. 7 | VERIFIED |
+| SAM-02-003 | Complete the required expenditure procedure before spending from the school fund. | — | 2.1, p. 7 | VERIFIED |
+| SAM-02-004 | Spend money deposited in the school fund according to a School Management Committee decision made under prevailing acts, rules, and law. | School Management Committee | 2.3(1), p. 7 | VERIFIED |
+| SAM-02-005 | Operate the school fund through the joint signatures of the head teacher and the accounts-related staff member/teacher. | Head teacher and accounts-related staff member/teacher | 2.3(2), p. 7 | VERIFIED |
+| SAM-02-006 | Conduct school-fund financial transactions through a bank account. | — | 2.3(3), p. 7 | VERIFIED |
+| SAM-02-007 | Keep the school-fund account books. | Head teacher and accounts-related staff member/teacher | 2.3(4), p. 7 | VERIFIED |
+| SAM-02-008 | Make all school expenditures from money deposited in the school fund. | School | 2.3(5), p. 7 | VERIFIED |
+| SAM-02-009 | Obtain a bank statement, reconcile the bank account monthly, and send the reconciliation report to the relevant body. | — | 2.3(6), p. 7 | VERIFIED |
+
+### SAM-03
+
+| ID | Requirement | Responsible actor | Source section/page | Status |
+| --- | --- | --- | --- | --- |
+| SAM-03-001 | Record every school income transaction under an income heading. | — | 3.1, p. 8 | VERIFIED |
+| SAM-03-002 | Apply the income-code classification and explanation in Annex 1 when recording income. | — | 3.1, p. 8 | VERIFIED |
+| SAM-03-003 | Record every school expenditure transaction under an expenditure heading. | — | 3.2, p. 8 | VERIFIED |
+| SAM-03-004 | Apply the expenditure-code classification and explanation in Annex 2 when recording expenditure. | — | 3.2, p. 8 | VERIFIED |
+
 ## Forms index
 
 Form rows index form titles only; the source is Chapter 10's forms register. Form contents, fields, timing, and routing remain unextracted.
