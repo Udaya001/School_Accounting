@@ -178,6 +178,34 @@ These atomic records are limited to explicit, software-relevant obligations in C
 | SAM-05-009 | When requesting budget release from the local level, use the format prescribed by that local level. | School | Chapter 5(f), p. 10 | VERIFIED |
 | SAM-05-010 | Use the prescribed Budget Release Request Letter template (Form 39) for a budget-release request letter. | School | Chapter 5(f), p. 10 | VERIFIED |
 
+### SAM-06
+
+| ID | Requirement | Responsible actor | Source section/page | Status |
+| --- | --- | --- | --- | --- |
+| SAM-06-001 | Maintain school accounts on the modified cash basis and internal earning basis, and maintain income and expenditure accounting on the same basis. | School | Chapter 6, p. 11 | VERIFIED |
+| SAM-06-002 | Prepare a balance sheet that accurately shows the school's actual transactions, income, expenditure, assets, liabilities, and fund position. | School | Chapter 6, p. 11 | VERIFIED |
+| SAM-06-007 | Issue a cash receipt for cash income received under income headings approved by the School Management Committee. | School | 6.1.1, p. 11 | VERIFIED |
+| SAM-06-008 | Record income received through a bank according to the bank voucher or bank statement. | School | 6.1.1, p. 11 | VERIFIED |
+| SAM-06-009 | Raise an income general voucher by income heading for received income and post it to the related account. | School | 6.1.1, p. 11 | VERIFIED |
+| SAM-06-010 | Use a cash/receipt receipt for every type of cash income received by the school. | School | 6.1.1.1, p. 11 | VERIFIED |
+| SAM-06-011 | Prepare each cash receipt in triplicate; give the first copy to the payer, retain the second copy with the related form, and retain the third copy in the receipt booklet. | School | 6.1.1.1, p. 11 | VERIFIED |
+| SAM-06-012 | Use cash receipts in serial-number order. | School | 6.1.1.1, p. 11 | VERIFIED |
+| SAM-06-013 | Retain a spoiled or cancelled cash receipt in the relevant receipt booklet before issuing another receipt. | School | 6.1.1.1, p. 11 | VERIFIED |
+| SAM-06-014 | At fiscal-year end, mark unused income receipts as remaining and retain them; for the next fiscal year, bring into use cash receipts printed with new numbers. | School | 6.1.1.1, pp. 11-12 | VERIFIED |
+| SAM-06-015 | Record income from every cash/receipt receipt used for cash income in the receipt-control account. | School | 6.1.1.2, p. 12 | VERIFIED |
+| SAM-06-016 | Estimate and print the cash/receipt receipts needed by the school at the beginning, record their receipt as income in the receipt-control account, and record their handover to users for use in that account. | School | 6.1.1.2, p. 12 | VERIFIED |
+| SAM-06-017 | Complete all information in the receipt-control account and keep it up to date. | School | 6.1.1.2, p. 12 | VERIFIED |
+| SAM-06-018 | Daily, raise an income general voucher for every cash income received, based on the cash receipt or bank voucher/bank statement, and record it under the related heading in accordance with debit-credit rules. | School | 6.1.1.3, p. 12 | VERIFIED |
+| SAM-06-019 | Deposit or submit cash received to the bank on the same day, or the next day if not done on the same day. | School | 6.1.1.3, p. 12 | VERIFIED |
+| SAM-06-020 | Do not conduct the school's financial transactions in cash. | School | 6.1.1.3, p. 12 | VERIFIED |
+| SAM-06-021 | Attach the second copy of the cash receipt or the bank voucher to the income general voucher. | School | 6.1.1.3, p. 12 | VERIFIED |
+| SAM-06-022 | Number income general vouchers sequentially for each fiscal year's income transactions, beginning with voucher number 1 at the beginning of Shrawan. | School | 6.1.1.3, p. 12 | VERIFIED |
+| SAM-06-023 | Enter every income received by the school daily in the monthly income account according to the income general voucher. | School | 6.1.1.4, p. 12 | VERIFIED |
+| SAM-06-024 | Prepare a monthly income report by income heading from the monthly income account. | School | 6.1.1.4, p. 12 | VERIFIED |
+| SAM-06-025 | Carry the cumulative income through the preceding month forward into the current month's income amount in sequence. | School | 6.1.1.4, p. 12 | VERIFIED |
+| SAM-06-026 | Close the monthly income account at the end of each fiscal year. | School | 6.1.1.4, p. 12 | VERIFIED |
+| SAM-06-027 | Use the fee register when collecting fees from students. | School | 6.1.1.5, p. 12 | VERIFIED |
+
 ## Forms index
 
 Form rows index form titles only; the source is Chapter 10's forms register. Form contents, fields, timing, and routing remain unextracted.
