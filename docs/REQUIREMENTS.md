@@ -262,6 +262,19 @@ These atomic records are limited to explicit, software-relevant obligations in C
 | SAM-06-080 | Ensure that the bank balance shown in the general deposit account equals the bank balance shown by the bank. | School | 6.1.2.12, pp. 15-16 | VERIFIED |
 | SAM-06-081 | Where those deposit-account balances differ, clearly state the reason for the difference. | School | 6.1.2.12, p. 16 | VERIFIED |
 
+| SAM-06-082 | Undertake travel for school work to a relevant body or office only after a travel order has been approved. | School | 6.1.2.13, p. 16 | VERIFIED |
+| SAM-06-083 | Maintain records of travel orders. | School | 6.1.2.13, p. 16 | VERIFIED |
+| SAM-06-084 | After approved travel for school work is completed and the traveller has reported to the school, submit the daily and travel-expense bill together with the travel report covering the work performed during the travel period. | — | 6.1.2.14, p. 16 | VERIFIED |
+| SAM-06-085 | Pay daily and travel expenses only when budget allocation and balance are available in the school fund. | School | 6.1.2.14, p. 16 | VERIFIED |
+| SAM-06-086 | Set a fixed initial amount in the petty-cash fund for small daily expenditure payments. | School | 6.1.2.15, p. 16 | VERIFIED |
+| SAM-06-087 | After petty-cash money is spent, request reimbursement to replenish the fund and keep it in continuous operation. | School | 6.1.2.15, p. 16 | VERIFIED |
+| SAM-06-088 | The school may keep accounts in a computerized accounting system approved by the Ministry of Education, Science and Technology. | School | 6.2, p. 16 | VERIFIED |
+| SAM-06-089 | When keeping accounts under the computerized accounting system, record income and expenditure according to debit-credit principles. | School | 6.2, p. 16 | VERIFIED |
+| SAM-06-090 | A computerized accounting system must prepare the necessary accounts and financial reports from the accounting records maintained under that system. | — | 6.2, p. 16 | VERIFIED |
+| SAM-06-091 | Where an approved-budget expenditure heading has an insufficient amount and one or more expenditure headings have a surplus, the head teacher may transfer up to 20 percent from one expenditure heading to another. | Head teacher | 6.3, p. 16 | VERIFIED |
+| SAM-06-092 | For a transfer exceeding 20 percent, or for a transfer from recurrent expenditure to capital expenditure, submit the matter to the School Management Committee and implement it according to its decision. | — | 6.3, p. 16 | VERIFIED |
+| SAM-06-093 | Do not transfer amounts from capital expenditure to recurrent expenditure. | — | 6.3, p. 16 | VERIFIED |
+
 ## Forms index
 
 Form rows index form titles only; the source is Chapter 10's forms register. Form contents, fields, timing, and routing remain unextracted.
