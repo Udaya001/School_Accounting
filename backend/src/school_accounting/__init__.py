@@ -1,0 +1,1 @@
+"""School Accounting backend."""
