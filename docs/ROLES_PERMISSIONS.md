@@ -8,11 +8,11 @@ The manual assigns responsibilities to the head teacher; accounts staff member/t
 
 Payers/students/parents, suppliers/payees, banks, local-level or other releasing bodies, donors, auditors, and the public participate in transactions or decisions but do not need product logins in this proposal. The SMC is a collective decision-making body; an authorized member may record its decision in the system, but a member’s login alone does not replace the required committee decision or evidence. Travelling staff and advance recipients can be recorded as named people without an account.
 
-## Proposed login roles
+## Proposed permission presets
 
-Four role types are sufficient for ordinary school operations. Assign roles to named people; a person may hold more than one role if staffing requires it, but preserve distinct recorded preparer/approver attribution wherever school authority or useful financial control calls for it.
+These are default permission presets, not hardcoded authorization roles or the manual’s assignment of legal authority. Assign only the operational capabilities needed to each named login and combine presets where school staffing requires it. Manual-designated responsibilities still determine who may authorize an action. The product must retain preparer/approver attribution and enforce distinct-authority rules described below.
 
-### Accounts preparer
+### Accounts preparer preset
 
 - **Purpose:** Maintain day-to-day accounting records, supporting documents, reconciliations, and reports.
 - **Accessible modules/subareas:** Money In; Expenses & Payments (including Payroll, Advances, Deposits, Travel, Petty Cash, and Bank & Reconciliation); Budget & Funding preparation; Reports; read access to Goods & Assets and Controls & Audit; Accounting Engine and Account Codes only through normal transaction use.
@@ -20,15 +20,15 @@ Four role types are sufficient for ordinary school operations. Assign roles to n
 - **Approval responsibilities:** Prepare evidence and statements; obtain and attach the head teacher’s approval/certification for expenditure and financial statements before submission (`SAM-01-021`). Does not approve own transactions merely by being an accounts preparer.
 - **Explicitly prohibited (product choice unless separately assigned an authorized role):** Approve own payment, budget transfer, or report; bypass required approval or evidence; alter/delete posted or locked records; change verified account-code definitions or accounting rules.
 
-### Head teacher / authorized approver
+### Head Teacher / Approver preset
 
-- **Purpose:** Exercise delegated school spending, certification, and operational oversight responsibilities.
+- **Purpose:** Provide oversight, approval, certification, and review according to the head teacher’s documented authority.
 - **Accessible modules/subareas:** All operational modules, Reports, and Controls & Audit; Account Codes read-only in transaction context. Accounting Engine remains background-only.
-- **Permissions (product choice):** View records; create/submit authorized requests and decisions; approve or return transactions within delegated authority; certify statements; authorize permitted cancellation before posting; approve a proposed reversal/adjustment/replacement within authority; export relevant reports. Posting is system-controlled after approval or delegated to the Accounts preparer after approval, not a way to bypass authorization.
+- **Permissions (product choice):** View and review records; approve or return transactions within delegated authority; certify statements; authorize permitted cancellation before posting; approve a proposed reversal/adjustment/replacement within authority; export relevant reports. This preset does not grant broad transaction create/edit/submit or posting powers by default; those entry capabilities may be assigned through another preset. Posting is system-controlled after approval or performed by an authorized posting preset after approval, never as a substitute for authorization.
 - **Approval responsibilities:** Approve spending within delegated allocation and rules (`SAM-01-014`); approve/certify statements before submission with accounts staff preparing them (`SAM-01-021`); give written direction where required documents/formalities are incomplete (`SAM-01-023`); perform the head-teacher part of joint bank operation with accounts staff (`SAM-01-015`, `SAM-02-005`). Route decisions reserved for the SMC to the committee.
-- **Explicitly prohibited (product choice):** Approve a matter reserved to the SMC as if it were a head-teacher-only decision; alone satisfy the joint-signature requirement; silently edit/delete posted records; alter code catalogues or accounting rules.
+- **Explicitly prohibited (product choice):** Approve a matter reserved to the SMC as if it were a head-teacher-only decision; alone satisfy the joint-signature requirement; silently edit/delete posted records; alter Accounting Engine rules or verified Account Code definitions.
 
-### Store / operational staff
+### Store / Operational Staff preset
 
 - **Purpose:** Record the physical custody and movement of goods and assets and initiate supported operational requests.
 - **Accessible modules/subareas:** Goods & Assets (requisitions, receipt evidence, inventory issues/transfers/inspection); create/view own purchase or expense requests and supporting travel/advance claims as applicable; read-only access to relevant Reports.
@@ -36,35 +36,47 @@ Four role types are sufficient for ordinary school operations. Assign roles to n
 - **Approval responsibilities:** Verify physical receipt, custody, issue, and inspection facts within assigned duties; submit evidence to the authorized approver/accounts preparer. This role does not substitute for a required spending approval.
 - **Explicitly prohibited (product choice):** Approve or pay own purchase request; change financial books or approved budget; delete posted inventory/financial history; approve a transfer or write-off outside documented authority.
 
-### SMC decision recorder / reviewer
+### SMC Decision Evidence preset
 
-- **Purpose:** Record and review evidence of collective SMC decisions without treating one member’s login as the committee itself.
-- **Accessible modules/subareas:** Budget & Funding (annual/revised budget and transfers); Controls & Audit (control plan, social-audit and meeting records); read-only Reports and decision-related evidence.
-- **Permissions (product choice):** View relevant proposals and reports; record or attach committee decisions, meeting minutes, and verification evidence; submit recorded decisions for application by authorized staff; export relevant reports. No routine entry or posting in the ledgers. A designated recorder may prepare the decision record but cannot attest to a collective decision without the required evidence.
-- **Approval responsibilities:** Evidence SMC decisions where the manual assigns approval or collective action, including the annual budget/programme, qualifying budget transfers, and internal-control work plan (`SAM-01-012`, `SAM-04-004`, `SAM-06-091`–`SAM-06-093`, `SAM-09-010`–`SAM-09-013`).
-- **Explicitly prohibited (product choice):** Make a collective decision alone; post accounting entries; approve payments or certify accounts solely by virtue of this role; edit/delete posted financial records.
+- **Purpose:** Link evidence of collective SMC decisions to relevant records without treating one member’s login as the committee itself.
+- **Accessible modules/subareas:** A narrow **Decision Evidence** capability across modules, including Budget & Funding, spending/payment records, inventory transfers, internal control, and meeting records; view the linked proposal/record and evidence only.
+- **Permissions (product choice):** Create, view, and submit decision-evidence links and attach or view minutes/decision evidence for the related record; export linked evidence where authorized. No permission to edit the underlying transaction, approve or post it, change its status, or cancel/reverse it. A designated recorder cannot attest to a collective decision without the required evidence.
+- **Approval responsibilities:** Record evidence of SMC decisions where required, including annual budget/programme approval, qualifying budget transfers, and internal-control work-plan approval (`SAM-01-012`, `SAM-04-004`, `SAM-06-091`–`SAM-06-093`, `SAM-09-008`). `SAM-09-010`–`SAM-09-013` specify internal-control plan scope and reporting/reliability provisions, not SMC approval.
+- **Explicitly prohibited (product choice):** Make a collective decision alone; edit, submit, approve, post, cancel, reverse, or alter underlying financial/inventory transactions; approve payments or certify accounts solely by virtue of this preset.
+
+### School Administrator preset
+
+- **Purpose:** Administer ordinary school-level software settings and user access without acquiring accounting authority.
+- **Accessible modules/subareas:** User and preset assignment management; school settings; fiscal-year and non-accounting configuration administration; non-financial administration needed to operate the school instance.
+- **Permissions (product choice):** Create, view, edit, disable, and assign users to standard permission presets; maintain school settings and fiscal-year/non-accounting configuration metadata; export administrative lists where appropriate. May not change the permission preset definitions. No access to transaction approval/posting/reversal by virtue of administrator status.
+- **Approval responsibilities:** None for financial, budget, inventory, or compliance transactions unless separately assigned an applicable operational preset and authorized by the school.
+- **Explicitly prohibited (product choice):** Financial approve, post, cancel, reverse, or transaction-edit powers solely from this preset; alter Accounting Engine rules or verified Account Code definitions. Authority for accounting rule/version configuration will be defined separately.
 
 ## Permission matrix
 
 Cells describe proposed login capabilities, not a change to the manual’s designated authority. “Prepare” means create/edit drafts and submit; “approve” means record the authorized approval/verification; “post” means commit approved entries (or allow automatic posting); “correct” means initiate a traceable reversal/adjustment/replacement, never overwrite history. External participants are not login roles.
 
-| Major workflow | Accounts preparer | Head teacher / authorized approver | Store / operational staff | SMC decision recorder / reviewer |
-| --- | --- | --- | --- | --- |
-| Fee/income collection; other income | Prepare, verify evidence, submit; post after approval | Approve exceptions/authority as applicable; joint bank authorization | — | Approve income headings where assigned; record decision |
-| Expense/payment; payroll | Prepare vouchers, payroll, deductions, evidence; post after approval | Approve within delegated authority; joint bank authorization | Initiate request; attach receipt evidence | Approve only a matter reserved to SMC |
-| Advances, deposits, travel, petty cash | Prepare, maintain subsidiary records, submit settlement | Approve issue/payment or travel as delegated | Submit claims/receipts; attest operational facts | — |
-| Bank statement/reconciliation | Enter statement, match, explain, prepare adjustment and submit | Review/authorize adjustment as required; joint bank authorization for account operation | — | — |
-| Annual budget and budget release | Prepare estimates/requests and supporting account data; submit | Prepare/present budget and approve within assigned authority | Provide operational needs | Record/evidence annual meeting and SMC approval; record committee decision |
-| Budget transfer | Prepare calculation and request; apply after required approval | Approve within own authority; refer reserved cases | — | Record/evidence SMC decision where required |
-| Procurement, receipt, inventory issue/transfer/inspection | Record financial voucher and books; post after approval | Approve spending within authority | Prepare requisitions and record receipt/custody/movement/inspection | Approve only committee-reserved decision |
-| Reports | Prepare, reconcile, submit; export working reports | Review/certify where required; submit/approve as assigned | View relevant operational extracts | Review and retain committee/meeting evidence |
-| Audit, beruju, social/internal control, guarantees | Maintain books, finding register and supporting evidence | Arrange audit, respond/authorize action, monitor controls | Supply asset/receipt evidence | Record/evidence committee and annual-meeting decisions; review control-plan evidence |
-| Cancel, reverse, adjust, replace | Cancel own draft; prepare correction for approval | Authorize before-posting cancellation or correction within authority | Cancel own draft; request a correction | Record decision evidence if committee authority applies |
+| Major workflow | Accounts preparer preset | Head Teacher / Approver preset | Store / Operational Staff preset | SMC Decision Evidence preset | School Administrator preset |
+| --- | --- | --- | --- | --- | --- |
+| Fee/income collection; other income | Prepare, verify evidence, submit; post after approval | Approve within authority; joint bank authorization | — | Link decision evidence if required; no transaction action | No financial transaction authority |
+| Expense/payment; payroll | Prepare vouchers, payroll, deductions, evidence; post after approval | Approve within delegated authority; joint bank authorization | Initiate request; attach receipt evidence | Link required SMC decision evidence; no transaction action | No financial transaction authority |
+| Advances, deposits, travel, petty cash | Prepare, maintain subsidiary records, submit settlement | Review/approve within delegated authority | Submit claims/receipts; attest operational facts | Link decision evidence if required; no transaction action | No financial transaction authority |
+| Bank statement/reconciliation | Enter statement, match, explain, prepare adjustment and submit | Review/authorize adjustment as required; joint bank authorization for account operation | — | — | No financial transaction authority |
+| Annual budget and budget release | Prepare estimates/requests and supporting account data; submit | Prepare/present annual budget; review release matters as authorized, but not in place of required SMC approval | Provide operational needs | Link evidence of annual meeting and SMC budget approval | No financial transaction authority |
+| Budget transfer | Prepare calculation and request; apply after required approval | Approve within own authority; refer reserved cases | — | Link required committee decision evidence; no transaction action | No financial transaction authority |
+| Procurement, receipt, inventory issue/transfer/inspection | Record financial voucher and books; post after approval | Review/approve spending within authority | Prepare requisitions and record receipt/custody/movement/inspection | Link required decision evidence, including committee-approved transfer; no transaction action | No financial transaction authority |
+| Reports | Prepare, reconcile, submit; export working reports | Review/certify where required; submit/approve as assigned | View relevant operational extracts | View/link authorized decision evidence | Export administrative lists only |
+| Audit, beruju, social/internal control, guarantees | Maintain books, finding register and supporting evidence | Arrange audit, respond/authorize action, monitor controls | Supply asset/receipt evidence | Link SMC decision evidence, including internal-control-plan approval; no transaction action | No financial transaction authority |
+| Cancel, reverse, adjust, replace | Cancel own draft; prepare correction for approval | Authorize before-posting cancellation or correction within authority | Cancel own draft; request a correction | Link required decision evidence only | No cancellation, reversal, or transaction-edit authority |
 
 ## Common boundaries and exceptions
 
 - **Manual requirement:** Joint signatures of the head teacher and accounts staff member/teacher govern operation of the school bank account (`SAM-01-015`); applicable school-fund operation also specifies joint signatures (`SAM-02-005`). A software approval is not a bank signature.
 - **Manual requirement:** The head teacher’s responsibilities, accounts staff duties, committee approvals, and supporting evidence remain those recorded in `REQUIREMENTS.md`; the role model cannot transfer them to another login role.
-- **Product choice:** Keep preparer, approver, and poster attribution visible. Use separate people for preparation and approval when practical, especially payments and corrections; do not impose a multi-step workflow where no separate authority is required. Where one person has multiple roles, the software must still record which capacity was used and retain approval evidence.
+- **Manual requirement:** The head teacher prepares and presents the annual budget/programme (`SAM-01-013`, `SAM-04-001`–`SAM-04-004`); the required SMC decision approves it, and its evidence is linked to the budget (`SAM-01-012`, `SAM-04-004`).
+- **Manual requirement:** SMC approval of the internal-control work plan is explicitly required by `SAM-09-008`. `SAM-09-010`–`SAM-09-013` define plan scope, recordkeeping, report timeliness, and report reliability, not additional approval requirements.
+- **Product choice:** Where a workflow requires a distinct authority, a person may not approve a record they prepared merely because they hold both the preparer and approver presets. The software must block self-approval and preserve attribution. Any future small-school exception requires an explicit authorized policy and an audit-logged exception; no such exception is granted by this model.
+- **Product choice:** Keep preparer, approver, and poster attribution visible. Use separate people where the manual requires distinct authority or where it is a useful control; do not add an unnecessary approval stage where no separate authority is required. Combining presets does not remove the self-approval rule.
+- **Product choice:** No ordinary school preset, including School Administrator, may directly alter Accounting Engine rules or verified Account Code definitions. Accounting rule/version configuration authority will be defined separately.
 - **Product choice:** Allow cancellation of drafts and unposted submissions with a reason and history. For posted/locked entries, disable edit/delete/cancel; require an authorized, traceable reversal, adjustment, or replacement preserving the original. Keep manual-specific void/cancellation handling, including retaining spoiled/cancelled receipts in their booklet and issuing the next serial receipt.
 - **External actors:** Payers, suppliers, banks, local levels, donors/parents, auditors, and the public may provide evidence, receive submissions, verify information, or participate in meetings; they receive no login permissions in this proposal.
