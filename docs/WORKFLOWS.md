@@ -2,6 +2,12 @@
 
 These concise workflows group obligations already verified in `docs/REQUIREMENTS.md` and assigned to product areas in `docs/MODULES.md`. They do not add accounting rules. **Manual** marks a requirement supported by the cited IDs. The numbered user steps are a proposed UX order for carrying out those obligations; **UX choice** marks proposed system assistance and exception handling. Where the manual prescribes order, timing, approval, or evidence, that requirement is stated explicitly.
 
+## Shared transaction lifecycle and corrections
+
+**UX/system design choice (not a manual-prescribed workflow):** Use Draft → Submitted/Review → Approved/Verified → Posted → Locked as a common lifecycle where appropriate. Do not silently edit or delete posted financial records. Correct them with a traceable reversal, adjustment, or replacement that preserves the original record and its history. This does not replace manual-specific cancellation rules: for example, retain a spoiled or cancelled receipt in its booklet and issue the next receipt.
+
+**Cross-cutting manual authorization:** For operation of the school bank account, require the joint signatures of the head teacher and accounts staff member/teacher (`SAM-01-015`). This applies to bank/payment activity and is not a bank-reconciliation rule.
+
 ## Money In
 
 ### Fee and cash income collection
@@ -108,7 +114,7 @@ These concise workflows group obligations already verified in `docs/REQUIREMENTS
 - **Records/books/reports affected (Manual):** Petty-cash fund statement (Form 24); expenditure voucher and bank cash book; source bills/receipts.
 - **Exception / correction path:** **Manual:** The manual specifies replenishment after spending. **UX choice:** Keep unsupported expenditure separate for review and preserve each replenishment as a new traceable entry.
 - **Completion state:** Petty-cash expenditure is supported and recorded, with the fund replenished or its remaining balance visible.
-- **Related requirement IDs:** `SAM-06-086`, `SAM-06-087`, `SAM-10-024`, `SAM-FORM-24`, `SAM-ANN-01-15112`.
+- **Related requirement IDs:** `SAM-06-086`, `SAM-06-087`, `SAM-10-024`, `SAM-FORM-24`.
 
 ### Bank reconciliation
 
@@ -121,7 +127,7 @@ These concise workflows group obligations already verified in `docs/REQUIREMENTS
 - **Records/books/reports affected (Manual):** Bank statement; bank cash book (Form 12); bank-reconciliation statement (Form 16); monthly report to the relevant body.
 - **Exception / correction path:** **Manual:** State the reason for any difference and adjust the school account. **UX choice:** Keep each unmatched amount in an exception list until a staff member records its explanation or confirmed adjustment; preserve the prior reconciliation.
 - **Completion state:** Statement and cash-book balances are reconciled, differences are explained/adjusted, and the reconciliation statement is retained/submitted.
-- **Related requirement IDs:** `SAM-01-015`, `SAM-02-009`, `SAM-06-048`–`SAM-06-050`, `SAM-06-061`–`SAM-06-063`, `SAM-10-016`, `SAM-FORM-12`, `SAM-FORM-16`.
+- **Related requirement IDs:** `SAM-02-009`, `SAM-06-048`–`SAM-06-050`, `SAM-06-061`–`SAM-06-063`, `SAM-10-016`, `SAM-FORM-12`, `SAM-FORM-16`.
 
 ## Budget & Funding
 
@@ -130,13 +136,13 @@ These concise workflows group obligations already verified in `docs/REQUIREMENTS
 - **Purpose:** Prepare and obtain approval for the coming fiscal year’s income and expenditure budget and programme.
 - **Supported actors:** Head teacher; accounts staff/teacher; School Management Committee; donors/parents at the annual meeting.
 - **Starting condition:** Annual planning begins for the coming fiscal year, using prior actual and current revised figures.
-- **User steps (UX order over manual duties):** 1. Identify expected internal and external income and required recurrent/capital expenditure. 2. Enter estimates by the manual’s income and expense headings, using preceding actuals and current revised amounts. 3. Check that estimated expenditure does not exceed estimated income. 4. Present the budget and programme for committee approval by the end of Ashar; send the approved form to the local level.
+- **User steps (UX order over manual duties):** 1. Hold the annual donors/parents meeting and present the preceding academic year’s income and expenditure. 2. Prepare and present the next fiscal year’s budget and programme for approval at that annual meeting and by the School Management Committee. 3. Identify expected internal and external income and required recurrent/capital expenditure; enter estimates by the manual’s headings using preceding actuals and current revised amounts. 4. Check that estimated expenditure does not exceed estimated income. 5. Complete committee approval by the end of Ashar and send the approved form to the local level.
 - **Automatic actions (UX choice):** Calculate totals and variances, compare income and expenditure, and highlight missing headings or a deficit before submission.
-- **Approvals / verification (Manual):** School Management Committee approves the annual budget/programme; the head teacher prepares and presents it on time.
+- **Approvals / verification (Manual):** The School Management Committee holds the annual donors/parents meeting, presents the preceding academic year’s income and expenditure, and approves the next fiscal year’s annual budget/programme (`SAM-01-012`); the head teacher prepares and presents the budget/programme on time (`SAM-01-013`).
 - **Records/books/reports affected (Manual):** Annual Budget Form (Form 1); approved budget/programme; budget account (Form 13); supporting prior-year actual and current-year revised figures.
 - **Exception / correction path:** **Manual:** If a new heading/programme arises or an approved amount is insufficient, prepare and obtain approval for a revised annual budget. **UX choice:** Keep revisions as dated versions with the approving decision linked.
 - **Completion state:** Approved budget/programme is retained and submitted; income and spending headings have approved estimates.
-- **Related requirement IDs:** `SAM-01-013`, `SAM-03-001`–`SAM-03-004`, `SAM-04-001`–`SAM-04-011`, `SAM-10-001`, `SAM-11-001`, `SAM-11-002`, `SAM-FORM-01`.
+- **Related requirement IDs:** `SAM-01-012`, `SAM-01-013`, `SAM-03-001`–`SAM-03-004`, `SAM-04-001`–`SAM-04-011`, `SAM-10-001`, `SAM-11-001`, `SAM-11-002`, `SAM-FORM-01`.
 
 ### Budget release
 
@@ -220,7 +226,7 @@ These concise workflows group obligations already verified in `docs/REQUIREMENTS
 - **Records/books/reports affected (Manual):** Annual income/expenditure accounts and statements; auditor’s report; responses/evidence; separate fiscal-year irregularity file; social audit meeting record.
 - **Exception / correction path:** **Manual:** Settle irregularities promptly and maintain evidence; no unsupported response. **UX choice:** Keep the original finding and each response/resolution as dated history; reopen a finding only with a recorded reason.
 - **Completion state:** Every finding is either supported as settled or remains visible with its response, evidence, and status; report distribution is recorded.
-- **Related requirement IDs:** `SAM-01-017`, `SAM-01-022`, `SAM-01-023`, `SAM-09-003`, `SAM-09-016`–`SAM-09-022`, `SAM-11-005`, `SAM-11-019`, `SAM-11-020`.
+- **Related requirement IDs:** `SAM-01-017`, `SAM-01-022`, `SAM-01-023`, `SAM-09-003`, `SAM-09-016`–`SAM-09-022`, `SAM-11-005`.
 
 ### Social audit
 
@@ -233,7 +239,20 @@ These concise workflows group obligations already verified in `docs/REQUIREMENTS
 - **Records/books/reports affected (Manual):** Annual activity and financial reports; auditor’s report; Teacher-Parent Association/meeting record; submission evidence.
 - **Exception / correction path:** **Manual:** Address findings through the factual audit-response and settlement process. **UX choice:** Track each action to its owner and evidence while retaining the meeting record.
 - **Completion state:** Annual review has been presented publicly, its record retained, and required submissions made.
-- **Related requirement IDs:** `SAM-01-012`, `SAM-09-002`, `SAM-09-014`, `SAM-09-015`, `SAM-09-020`, `SAM-11-005`.
+- **Related requirement IDs:** `SAM-09-002`, `SAM-09-014`, `SAM-09-015`, `SAM-09-020`, `SAM-11-005`.
+
+### Bank guarantees
+
+- **Purpose:** Maintain complete records of guarantees received for construction and other work and verify every guarantee with its issuing bank.
+- **Supported actors:** School staff responsible for construction/other work and guarantee records; issuing bank.
+- **Starting condition:** A performance, advance-payment, or other bank guarantee is received by the school.
+- **User steps (UX order over manual duties):** 1. Record the guarantee type and all related bank-guarantee details in the appropriate separate, organized records. 2. Contact the issuing bank and request verification. 3. Record the verification outcome and retain supporting correspondence/evidence with the guarantee record. 4. Update its status and retain subsequent status/history changes.
+- **Automatic actions (UX choice):** Remind staff to verify a newly received guarantee and keep dated status/history entries linked to the evidence.
+- **Approvals / verification (Manual):** Every guarantee received by the school must be verified by contacting the issuing bank.
+- **Records/books/reports affected (Manual):** Separate organized records of performance guarantees, advance-payment guarantees, and other guarantees received, with all related bank-guarantee details; issuing-bank verification evidence.
+- **Exception / correction path:** **Manual:** The manual requires verification of every guarantee. **UX choice:** Keep unverified or discrepant guarantees visibly pending and record follow-up and corrected details without erasing prior history.
+- **Completion state:** Guarantee details and issuing-bank verification evidence are recorded; current status and its history remain traceable.
+- **Related requirement IDs:** `SAM-11-019`, `SAM-11-020`.
 
 ### Internal control
 
