@@ -362,6 +362,76 @@ These atomic records are limited to explicit, software-relevant obligations in C
 | SAM-09-021 | Maintain separate fiscal-year files of audit irregularities and settle them in time. | Head teacher and accounts staff member/teacher | 9.5, p. 25 | VERIFIED |
 | SAM-09-022 | In the auditor-selection conditions, require evaluation of the settlement status of irregularities identified in the preceding audit and require that status to be stated in the audit report. | School | 9.5, p. 25 | VERIFIED |
 
+### SAM-10
+
+| ID | Requirement | Responsible actor | Source section/page | Status |
+| --- | --- | --- | --- | --- |
+| SAM-10-001 | Prepare the Annual Budget Form by the end of Ashar each year and send it to the local level. | School | Form 1, p. 27 | VERIFIED |
+| SAM-10-002 | Use the Teacher Salary Request Form when requesting salary release monthly or four-monthly and send it to the local level. | School | Form 2, p. 27 | VERIFIED |
+| SAM-10-003 | Use the Cash/Receipt Receipt whenever income is received by cash or bank and retain it in the school records. | School | Form 3, p. 27 | VERIFIED |
+| SAM-10-004 | Use the Receipt Control Account whenever a receipt/voucher is used to record income or expenditure, and retain it in the school records. | School | Form 4, p. 27 | VERIFIED |
+| SAM-10-005 | Raise the Income General Voucher for each income/release document and retain it in the school records. | School | Form 5, p. 27 | VERIFIED |
+| SAM-10-006 | Prepare the Monthly Income Account from income general vouchers by the seventh day of each month and send it to the local level. | School | Form 6, p. 27 | VERIFIED |
+| SAM-10-007 | Prepare the Annual Income Account within seven days after the fiscal year ends, based on the Monthly Income Account, and send it to the local level. | School | Form 7, p. 27 | VERIFIED |
+| SAM-10-008 | Use the Fee Register to record amounts received as fees and retain it in the school records. | School | Form 8, p. 27 | VERIFIED |
+| SAM-10-009 | Raise the Expenditure General Voucher for each expenditure with the required bill, payment voucher, and other supporting documents attached, and retain it in the school records. | School | Form 9, p. 27 | VERIFIED |
+| SAM-10-010 | Prepare the Monthly Expenditure Account from expenditure general vouchers by the seventh day of each month and send it to the local level. | School | Form 10, p. 27 | VERIFIED |
+| SAM-10-011 | Prepare the Annual Expenditure Account within seven days after the fiscal year ends, based on the Monthly Expenditure Account, and send it to the local level. | School | Form 11, p. 27 | VERIFIED |
+| SAM-10-012 | Prepare the Bank Cash Book by the seventh day of each month and retain it in the school records. | School | Form 12, p. 27 | VERIFIED |
+| SAM-10-013 | Prepare the Budget Account by the seventh day of each month and retain it in the school records. | School | Form 13, p. 27 | VERIFIED |
+| SAM-10-014 | Prepare the Expenditure Statement by the seventh day of each month and send it to the local level. | School | Form 14, p. 27 | VERIFIED |
+| SAM-10-015 | Prepare the Schedule of Advances Pending Settlement by the seventh day of each month and send it to the local level. | School | Form 15, p. 27 | VERIFIED |
+| SAM-10-016 | Prepare the Bank-Reconciliation Statement by the seventh day of each month and send it to the local level. | School | Form 16, p. 27 | VERIFIED |
+| SAM-10-017 | Prepare the Trial Balance by the seventh day of each month and send it to the local level. | School | Form 17, p. 27 | VERIFIED |
+| SAM-10-018 | Post each advance and advance-settlement transaction to the Advance Subsidiary Account and retain it in the school records. | School | Form 18, p. 27 | VERIFIED |
+| SAM-10-019 | Post each deposit transaction to the General Deposit Account, prepare it by the seventh day of each month, retain it in school records, and send the final-Asar transaction details with annual income/expenditure reports to the local level. | School | Form 19, p. 27 | VERIFIED |
+| SAM-10-020 | Post each individual's or institution's deposit details to the Individual Deposit Account, retain it in school records, and send the final-Asar transaction details with annual income/expenditure reports to the local level. | School | Form 20, p. 28 | VERIFIED |
+| SAM-10-021 | Obtain a bank statement and prepare the Deposit Financial Statement by the seventh day of each month; retain it in school records and send its final-Asar transaction details with annual income/expenditure reports to the local level. | School | Form 21, p. 28 | VERIFIED |
+| SAM-10-022 | Obtain approval for a Travel Order for each official school travel and retain it in school records. | School | Form 22, p. 28 | VERIFIED |
+| SAM-10-023 | Prepare the Daily and Travel-Expense Bill after completing travel according to rules and retain it in school records. | School | Form 23, p. 28 | VERIFIED |
+| SAM-10-024 | Use the Petty-Cash Fund Statement as needed under applicable arrangements and retain it in school records. | School | Form 24, p. 28 | VERIFIED |
+| SAM-10-025 | Prepare the Monthly Income/Expenditure Statement by the seventh day of each month from monthly income and expenditure accounts and send it to the local level. | School | Form 25, p. 28 | VERIFIED |
+| SAM-10-026 | Prepare the Four-Monthly Income/Expenditure Statement within fifteen days after the four-month period ends, based on the monthly statement, and send it to the local level. | School | Form 26, p. 28 | VERIFIED |
+| SAM-10-027 | Prepare the Annual Income/Expenditure Statement within thirty days after the fiscal year ends, based on the four-monthly statement, and send it to the local level. | School | Form 27, p. 28 | VERIFIED |
+| SAM-10-028 | Prepare the Balance Sheet within thirty days after the fiscal year ends and send it to the local level. | School | Form 28, p. 28 | VERIFIED |
+| SAM-10-029 | Use the Requisition Form whenever inventory is requested and when it is released, and retain it in school records. | School | Form 29, p. 28 | VERIFIED |
+| SAM-10-030 | Prepare a Purchase Order for each market purchase and retain it in school records. | School | Form 30, p. 28 | VERIFIED |
+| SAM-10-031 | Prepare a Receipt/Entry Report whenever goods are entered/received and retain it in school records. | School | Form 31, p. 28 | VERIFIED |
+| SAM-10-032 | Post a non-consumable inventory Receipt/Entry Report to the Non-consumable Inventory Account and retain it in school records. | School | Form 32, p. 28 | VERIFIED |
+| SAM-10-033 | Post a consumable inventory Receipt/Entry Report to the Consumable Inventory Account and retain it in school records. | School | Form 33, p. 28 | VERIFIED |
+| SAM-10-034 | Prepare the Land/Building Cost Book within thirty days after the fiscal year ends and send it to the local level. | School | Form 34, p. 28 | VERIFIED |
+| SAM-10-035 | Use a Transfer Form for every inventory transfer and retain it in school records. | School | Form 35, p. 29 | VERIFIED |
+| SAM-10-036 | Prepare the Annual Inventory-Stock Statement within seven days after the fiscal year ends and send it to the local level. | School | Form 36, p. 29 | VERIFIED |
+| SAM-10-037 | Complete the Inventory Inspection Form within thirty days after the fiscal year ends and send it to the local level. | School | Form 37, p. 29 | VERIFIED |
+| SAM-10-038 | Retain in the school records the authority-letter template issued by the local level to the relevant school. | Local level | Form 38, p. 29 | VERIFIED |
+| SAM-10-039 | Use the Budget Release Request Letter template when requesting budget release and retain it in school records. | School | Form 39, p. 29 | VERIFIED |
+| SAM-10-040 | Retain in school records the budget-release notice letter issued by the local level. | Local level | Form 40, p. 29 | VERIFIED |
+
+### SAM-11
+
+| ID | Requirement | Responsible actor | Source section/page | Status |
+| --- | --- | --- | --- | --- |
+| SAM-11-001 | Prepare vouchers separately by budget subheading for conditional recurrent grants, conditional capital grants, unconditional grants, equalization grants, grants from local-level resources, provincial-government grants, internal-school sources, other institutions, and donations. | School | 11.1, p. 30 | VERIFIED |
+| SAM-11-002 | Prepare income/expenditure vouchers, bank cash books, budget accounts, expenditure statements, schedules of advances pending settlement, bank-reconciliation statements, income accounts, and expenditure accounts separately by heading as specified in 11.1. | School | 11.2, p. 30 | VERIFIED |
+| SAM-11-003 | Prepare annual statements separately by income/expenditure heading and submit them to the relevant body within thirty days after the fiscal year ends. | School | 11.3, p. 30 | VERIFIED |
+| SAM-11-004 | Prepare the annual inventory and asset-management statements: Annual Inventory-Stock Statement, Inventory Inspection Form, and Land/Building Cost Book. | School | 11.4, p. 30 | VERIFIED |
+| SAM-11-005 | Send annual income/expenditure and inventory/asset-management statements to the local level, make them available to the auditor and social audit, retain them in school records, submit them to other relevant bodies, and maintain them in separate files by fiscal year. | School | 11.5, p. 31 | VERIFIED |
+| SAM-11-006 | Conduct purchases and service transactions only with firms/businesses registered with the Inland Revenue Office and holding a permanent account number. | School | 11.6.1, p. 31 | VERIFIED |
+| SAM-11-007 | Withhold advance income tax from taxable payments, deposit it in the bank under the prescribed revenue heading, send the bank voucher with a letter to the Inland Revenue Office, and provide the annual withholding details to the relevant person, firm, or business at fiscal-year end. | School | 11.6.2, p. 31 | VERIFIED |
+| SAM-11-008 | Withhold fifty percent of value-added tax from supplier bills from Shrawan 2076 onward, submit that portion to the Inland Revenue Office with the bank voucher and letter under the prescribed revenue heading, and pay the remaining fifty percent to the relevant person or firm. | School | 11.6.3, p. 31 | VERIFIED |
+| SAM-11-009 | Withhold annual income tax from unmarried teachers/staff according to the tax slabs and rates stated in the Income Tax Act, 2058 and Regulations, 2059, and deposit it under the prescribed revenue heading. | School | 11.6.4, p. 32 | VERIFIED |
+| SAM-11-010 | Withhold annual income tax from married teachers/staff according to the tax slabs and rates stated in the Income Tax Act, 2058 and Regulations, 2059, and deposit it under the prescribed revenue heading. | School | 11.6.5, p. 32 | VERIFIED |
+| SAM-11-011 | For permanently appointed teachers/staff covered by the contributory retirement and gratuity arrangement from Shrawan 1, 2076, deduct six percent of monthly salary, add six percent, and send the amount to the retirement and gratuity fund. | School | 11.7.1-11.7.2, p. 32 | VERIFIED |
+| SAM-11-012 | Send the voucher and statement of amounts withheld for the retirement and gratuity fund to the Employees Provident Fund monthly. | School | 11.7.3, p. 32 | VERIFIED |
+| SAM-11-013 | Complete and attach the vehicle logbook to the records when recording fuel expenditure for school work. | School | 11.8, p. 32 | VERIFIED |
+| SAM-11-014 | Have the teacher, staff member, or office holder using a vehicle complete the vehicle logbook for every use and have it certified by the authorized officer. | Vehicle user; authorized officer | 11.8, p. 32 | VERIFIED |
+| SAM-11-015 | Have the head teacher certify bills and payment vouchers for all expenditure under the approved annual programme and budget with a “paid” stamp, and use an “income recorded” stamp on bank vouchers and cash receipts received as income. | Head teacher | 11.9, p. 33 | VERIFIED |
+| SAM-11-016 | Maintain organized income-side and expenditure-side bills and payment vouchers. | School | 11.9, p. 33 | VERIFIED |
+| SAM-11-017 | After approved travel for school work is completed and the traveller has reported to the school, prepare and submit a travel report covering work done during the travel period. | — | 11.10, p. 33 | VERIFIED |
+| SAM-11-018 | Attach the travel report when paying daily and travel expenses. | School | 11.10, p. 33 | VERIFIED |
+| SAM-11-019 | Maintain separate, organized records of performance guarantees, advance-payment guarantees, and other guarantees received for construction and other work, including all related bank-guarantee details. | School | 11.11, p. 33 | VERIFIED |
+| SAM-11-020 | Contact the issuing bank and have every bank guarantee received by the school verified. | School | 11.11, p. 33 | VERIFIED |
+
 ## Forms index
 
 Form rows index form titles only; the source is Chapter 10's forms register. Form contents, fields, timing, and routing remain unextracted.
