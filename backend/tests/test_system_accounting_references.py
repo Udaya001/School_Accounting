@@ -51,7 +51,7 @@ def session_factory() -> Iterator[async_sessionmaker[AsyncSession]]:
             await connection.execute(
                 text(
                     "TRUNCATE official_template_versions, ledger_account_definitions, "
-                    "account_code_versions, rule_set_versions, supported_locales"
+                    "account_code_versions, rule_set_versions, supported_locales CASCADE"
                 )
             )
 
