@@ -1,6 +1,9 @@
 .DS_Store
 .env
 .env.*
+!.env.example
+.venv/
+*.egg-info/
 __pycache__/
 *.py[cod]
 .pytest_cache/
