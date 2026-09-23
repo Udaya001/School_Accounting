@@ -6,10 +6,12 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from school_accounting.config import get_settings
 from school_accounting.infrastructure.db.base import Base
+from school_accounting.infrastructure.db import models  # noqa: F401
 
 config = context.config
 settings = get_settings()
-config.set_main_option("sqlalchemy.url", settings.database_url.replace("%", "%%"))
+if config.get_main_option("sqlalchemy.url") == "":
+    config.set_main_option("sqlalchemy.url", settings.database_url.replace("%", "%%"))
 
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
