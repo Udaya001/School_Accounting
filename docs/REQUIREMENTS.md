@@ -2,96 +2,96 @@
 
 ## Use
 
-This is a navigation index, not a requirements extraction. It was compiled from the manual's table of contents, section headings, and forms register only. `TO_EXTRACT` means that no rule, workflow, field, or interpretation has been captured yet.
+This navigation index was compiled from the manual's table of contents, section headings, and forms register. Every indexed source area below has a corresponding verified extraction in this document.
 
 Sources below use the manual's printed page numbers. Prefixes are permanent identifiers for later detailed requirements, which should be nested beneath the relevant prefix (for example, `SAM-06-01-01-R01`).
 
 | Prefix | Source area | Printed pages | Status |
 | --- | --- | --- | --- |
-| SAM-01 | Chapter 1 - Introduction (परिचय) | 1-6 | TO_EXTRACT |
-| SAM-01-01 | 1.1 Background (पृष्ठभूमि) | 1 | TO_EXTRACT |
-| SAM-01-02 | 1.2 Accounts and accounting (लेखा तथा लेखांकन) | 1-4 | TO_EXTRACT |
-| SAM-01-02-01 | 1.2.1 Accounting concepts and principles | 1-2 | TO_EXTRACT |
-| SAM-01-02-02 | 1.2.2 Rules of the accounting system | 3 | TO_EXTRACT |
-| SAM-01-02-03 | 1.2.3 Objectives of accounting | 4 | TO_EXTRACT |
-| SAM-01-03 | 1.3 Financial-management roles of office holders | 5-6 | TO_EXTRACT |
-| SAM-01-03-01 | 1.3.1 School Management Committee | 5 | TO_EXTRACT |
-| SAM-01-03-02 | 1.3.2 Head teacher | 5 | TO_EXTRACT |
-| SAM-01-03-03 | 1.3.3 Accounts staff/teacher | 6 | TO_EXTRACT |
-| SAM-02 | Chapter 2 - School fund operation | 7 | TO_EXTRACT |
-| SAM-02-01 | 2.1 School fund | 7 | TO_EXTRACT |
-| SAM-02-02 | 2.2 Sources of the school fund | 7 | TO_EXTRACT |
-| SAM-02-03 | 2.3 Method of operating the school fund | 7 | TO_EXTRACT |
-| SAM-03 | Chapter 3 - Classification and explanation of income and expense codes | 8 | TO_EXTRACT |
-| SAM-03-01 | 3.1 Income-code classification and explanation | 8 | TO_EXTRACT |
-| SAM-03-02 | 3.2 Expense-code classification and explanation | 8 | TO_EXTRACT |
-| SAM-04 | Chapter 4 - School budget formulation process | 9 | TO_EXTRACT |
-| SAM-04-01 | 4.1 Estimated income receipts | 9 | TO_EXTRACT |
-| SAM-04-02 | 4.2 Estimated expenditure headings | 9 | TO_EXTRACT |
-| SAM-05 | Chapter 5 - Budget-release request arrangements | 10 | TO_EXTRACT |
-| SAM-06 | Chapter 6 - School income/expenditure accounting | 11-16 | TO_EXTRACT |
-| SAM-06-01 | 6.1 Income and expenditure accounting procedures | 11-16 | TO_EXTRACT |
-| SAM-06-01-01 | 6.1.1 Income accounting: method, forms, and use | 11-12 | TO_EXTRACT |
-| SAM-06-01-01-01 | 6.1.1.1 Cash/receipt receipt | 12 | TO_EXTRACT |
-| SAM-06-01-01-02 | 6.1.1.2 Receipt-control account | 12 | TO_EXTRACT |
-| SAM-06-01-01-03 | 6.1.1.3 Income general voucher | 12 | TO_EXTRACT |
-| SAM-06-01-01-04 | 6.1.1.4 Monthly income account | 12 | TO_EXTRACT |
-| SAM-06-01-01-05 | 6.1.1.5 Fee register | 12 | TO_EXTRACT |
-| SAM-06-01-02 | 6.1.2 Expenditure accounting: method, forms, and use | 13-16 | TO_EXTRACT |
-| SAM-06-01-02-01 | 6.1.2.1 General voucher | 13 | TO_EXTRACT |
-| SAM-06-01-02-02 | 6.1.2.2 Monthly expenditure account | 13 | TO_EXTRACT |
-| SAM-06-01-02-03 | 6.1.2.3 Bank cash book | 14 | TO_EXTRACT |
-| SAM-06-01-02-04 | 6.1.2.4 Budget account | 14 | TO_EXTRACT |
-| SAM-06-01-02-05 | 6.1.2.5 Expenditure statement | 14 | TO_EXTRACT |
-| SAM-06-01-02-06 | 6.1.2.6 Outstanding-advance settlement schedule | 14 | TO_EXTRACT |
-| SAM-06-01-02-07 | 6.1.2.7 Bank-reconciliation statement | 14 | TO_EXTRACT |
-| SAM-06-01-02-08 | 6.1.2.8 Consolidated-fund operation | 14 | TO_EXTRACT |
-| SAM-06-01-02-09 | 6.1.2.9 Advance subsidiary account | 14 | TO_EXTRACT |
-| SAM-06-01-02-10 | 6.1.2.10 General deposit account | 14 | TO_EXTRACT |
-| SAM-06-01-02-11 | 6.1.2.11 Individual deposit account | 14 | TO_EXTRACT |
-| SAM-06-01-02-12 | 6.1.2.12 Deposit financial statement | 15 | TO_EXTRACT |
-| SAM-06-01-02-13 | 6.1.2.13 Travel order | 15 | TO_EXTRACT |
-| SAM-06-01-02-14 | 6.1.2.14 Daily and travel-expense bill | 16 | TO_EXTRACT |
-| SAM-06-01-02-15 | 6.1.2.15 Petty-cash fund statement | 16 | TO_EXTRACT |
-| SAM-06-02 | 6.2 Computerized accounting system and its use | 16 | TO_EXTRACT |
-| SAM-06-03 | 6.3 Transfer of appropriations arrangement | 16 | TO_EXTRACT |
-| SAM-07 | Chapter 7 - Financial reporting arrangements | 17-18 | TO_EXTRACT |
-| SAM-07-01 | 7.1 Monthly, four-monthly, and annual income/expenditure reports | 17 | TO_EXTRACT |
-| SAM-07-02 | 7.2 Annual report | 17 | TO_EXTRACT |
-| SAM-07-03 | 7.3 Balance sheet | 18 | TO_EXTRACT |
-| SAM-08 | Chapter 8 - Inventory and asset management | 19-22 | TO_EXTRACT |
-| SAM-08-01 | 8.1 Inventory recordkeeping and reporting arrangements | 20-22 | TO_EXTRACT |
-| SAM-08-01-01 | 8.1.1 Requisition form | 20 | TO_EXTRACT |
-| SAM-08-01-02 | 8.1.2 Purchase order | 20 | TO_EXTRACT |
-| SAM-08-01-03 | 8.1.3 Receipt/entry report | 21 | TO_EXTRACT |
-| SAM-08-01-04 | 8.1.4 Inventory account: non-expensed items | 21 | TO_EXTRACT |
-| SAM-08-01-05 | 8.1.5 Inventory account: expensed items | 21 | TO_EXTRACT |
-| SAM-08-01-06 | 8.1.6 Land/building cost book | 22 | TO_EXTRACT |
-| SAM-08-01-07 | 8.1.7 Transfer form | 22 | TO_EXTRACT |
-| SAM-08-01-08 | 8.1.8 Annual inventory-stock statement | 22 | TO_EXTRACT |
-| SAM-08-01-09 | 8.1.9 Inventory inspection form | 22 | TO_EXTRACT |
-| SAM-09 | Chapter 9 - Internal control and audit arrangements | 23-25 | TO_EXTRACT |
-| SAM-09-01 | 9.1 Internal-control arrangements | 23 | TO_EXTRACT |
-| SAM-09-02 | 9.2 Internal-control work plan | 23 | TO_EXTRACT |
-| SAM-09-03 | 9.3 Teacher-parent association | 24 | TO_EXTRACT |
-| SAM-09-04 | 9.4 Social audit | 25 | TO_EXTRACT |
-| SAM-09-05 | 9.5 Audit and outstanding-objection settlement | 25 | TO_EXTRACT |
-| SAM-10 | Chapter 10 - Consolidated list of forms in the school accounting manual | 27-29 | TO_EXTRACT |
-| SAM-11 | Chapter 11 - Simplified procedures for school financial transactions and annual statements | 30-33 | TO_EXTRACT |
-| SAM-11-01 | 11.1 Prepare vouchers by budget subheading | 30 | TO_EXTRACT |
-| SAM-11-02 | 11.2 Prepare accounts by budget subheading | 30 | TO_EXTRACT |
-| SAM-11-03 | 11.3 Prepare annual statements by budget subheading | 30 | TO_EXTRACT |
-| SAM-11-04 | 11.4 Types of annual inventory and asset-management statements | 30 | TO_EXTRACT |
-| SAM-11-05 | 11.5 Documents to submit with income/expense vouchers and annual inventory/asset statements | 31 | TO_EXTRACT |
-| SAM-11-06 | 11.6 Tax procedures | 31 | TO_EXTRACT |
-| SAM-11-07 | 11.7 Project-based procurement and production arrangements | 32 | TO_EXTRACT |
-| SAM-11-08 | 11.8 Vehicle-logbook arrangements | 32 | TO_EXTRACT |
-| SAM-11-09 | 11.9 Use of payment stamps | 33 | TO_EXTRACT |
-| SAM-11-10 | 11.10 Travel-report arrangements | 33 | TO_EXTRACT |
-| SAM-11-11 | 11.11 Bank-guarantee management arrangements | 33 | TO_EXTRACT |
+| SAM-01 | Chapter 1 - Introduction (परिचय) | 1-6 | VERIFIED |
+| SAM-01-01 | 1.1 Background (पृष्ठभूमि) | 1 | VERIFIED |
+| SAM-01-02 | 1.2 Accounts and accounting (लेखा तथा लेखांकन) | 1-4 | VERIFIED |
+| SAM-01-02-01 | 1.2.1 Accounting concepts and principles | 1-2 | VERIFIED |
+| SAM-01-02-02 | 1.2.2 Rules of the accounting system | 3 | VERIFIED |
+| SAM-01-02-03 | 1.2.3 Objectives of accounting | 4 | VERIFIED |
+| SAM-01-03 | 1.3 Financial-management roles of office holders | 5-6 | VERIFIED |
+| SAM-01-03-01 | 1.3.1 School Management Committee | 5 | VERIFIED |
+| SAM-01-03-02 | 1.3.2 Head teacher | 5 | VERIFIED |
+| SAM-01-03-03 | 1.3.3 Accounts staff/teacher | 6 | VERIFIED |
+| SAM-02 | Chapter 2 - School fund operation | 7 | VERIFIED |
+| SAM-02-01 | 2.1 School fund | 7 | VERIFIED |
+| SAM-02-02 | 2.2 Sources of the school fund | 7 | VERIFIED |
+| SAM-02-03 | 2.3 Method of operating the school fund | 7 | VERIFIED |
+| SAM-03 | Chapter 3 - Classification and explanation of income and expense codes | 8 | VERIFIED |
+| SAM-03-01 | 3.1 Income-code classification and explanation | 8 | VERIFIED |
+| SAM-03-02 | 3.2 Expense-code classification and explanation | 8 | VERIFIED |
+| SAM-04 | Chapter 4 - School budget formulation process | 9 | VERIFIED |
+| SAM-04-01 | 4.1 Estimated income receipts | 9 | VERIFIED |
+| SAM-04-02 | 4.2 Estimated expenditure headings | 9 | VERIFIED |
+| SAM-05 | Chapter 5 - Budget-release request arrangements | 10 | VERIFIED |
+| SAM-06 | Chapter 6 - School income/expenditure accounting | 11-16 | VERIFIED |
+| SAM-06-01 | 6.1 Income and expenditure accounting procedures | 11-16 | VERIFIED |
+| SAM-06-01-01 | 6.1.1 Income accounting: method, forms, and use | 11-12 | VERIFIED |
+| SAM-06-01-01-01 | 6.1.1.1 Cash/receipt receipt | 12 | VERIFIED |
+| SAM-06-01-01-02 | 6.1.1.2 Receipt-control account | 12 | VERIFIED |
+| SAM-06-01-01-03 | 6.1.1.3 Income general voucher | 12 | VERIFIED |
+| SAM-06-01-01-04 | 6.1.1.4 Monthly income account | 12 | VERIFIED |
+| SAM-06-01-01-05 | 6.1.1.5 Fee register | 12 | VERIFIED |
+| SAM-06-01-02 | 6.1.2 Expenditure accounting: method, forms, and use | 13-16 | VERIFIED |
+| SAM-06-01-02-01 | 6.1.2.1 General voucher | 13 | VERIFIED |
+| SAM-06-01-02-02 | 6.1.2.2 Monthly expenditure account | 13 | VERIFIED |
+| SAM-06-01-02-03 | 6.1.2.3 Bank cash book | 14 | VERIFIED |
+| SAM-06-01-02-04 | 6.1.2.4 Budget account | 14 | VERIFIED |
+| SAM-06-01-02-05 | 6.1.2.5 Expenditure statement | 14 | VERIFIED |
+| SAM-06-01-02-06 | 6.1.2.6 Outstanding-advance settlement schedule | 14 | VERIFIED |
+| SAM-06-01-02-07 | 6.1.2.7 Bank-reconciliation statement | 14 | VERIFIED |
+| SAM-06-01-02-08 | 6.1.2.8 Consolidated-fund operation | 14 | VERIFIED |
+| SAM-06-01-02-09 | 6.1.2.9 Advance subsidiary account | 14 | VERIFIED |
+| SAM-06-01-02-10 | 6.1.2.10 General deposit account | 14 | VERIFIED |
+| SAM-06-01-02-11 | 6.1.2.11 Individual deposit account | 14 | VERIFIED |
+| SAM-06-01-02-12 | 6.1.2.12 Deposit financial statement | 15 | VERIFIED |
+| SAM-06-01-02-13 | 6.1.2.13 Travel order | 15 | VERIFIED |
+| SAM-06-01-02-14 | 6.1.2.14 Daily and travel-expense bill | 16 | VERIFIED |
+| SAM-06-01-02-15 | 6.1.2.15 Petty-cash fund statement | 16 | VERIFIED |
+| SAM-06-02 | 6.2 Computerized accounting system and its use | 16 | VERIFIED |
+| SAM-06-03 | 6.3 Transfer of appropriations arrangement | 16 | VERIFIED |
+| SAM-07 | Chapter 7 - Financial reporting arrangements | 17-18 | VERIFIED |
+| SAM-07-01 | 7.1 Monthly, four-monthly, and annual income/expenditure reports | 17 | VERIFIED |
+| SAM-07-02 | 7.2 Annual report | 17 | VERIFIED |
+| SAM-07-03 | 7.3 Balance sheet | 18 | VERIFIED |
+| SAM-08 | Chapter 8 - Inventory and asset management | 19-22 | VERIFIED |
+| SAM-08-01 | 8.1 Inventory recordkeeping and reporting arrangements | 20-22 | VERIFIED |
+| SAM-08-01-01 | 8.1.1 Requisition form | 20 | VERIFIED |
+| SAM-08-01-02 | 8.1.2 Purchase order | 20 | VERIFIED |
+| SAM-08-01-03 | 8.1.3 Receipt/entry report | 21 | VERIFIED |
+| SAM-08-01-04 | 8.1.4 Inventory account: non-expensed items | 21 | VERIFIED |
+| SAM-08-01-05 | 8.1.5 Inventory account: expensed items | 21 | VERIFIED |
+| SAM-08-01-06 | 8.1.6 Land/building cost book | 22 | VERIFIED |
+| SAM-08-01-07 | 8.1.7 Transfer form | 22 | VERIFIED |
+| SAM-08-01-08 | 8.1.8 Annual inventory-stock statement | 22 | VERIFIED |
+| SAM-08-01-09 | 8.1.9 Inventory inspection form | 22 | VERIFIED |
+| SAM-09 | Chapter 9 - Internal control and audit arrangements | 23-25 | VERIFIED |
+| SAM-09-01 | 9.1 Internal-control arrangements | 23 | VERIFIED |
+| SAM-09-02 | 9.2 Internal-control work plan | 23 | VERIFIED |
+| SAM-09-03 | 9.3 Teacher-parent association | 24 | VERIFIED |
+| SAM-09-04 | 9.4 Social audit | 25 | VERIFIED |
+| SAM-09-05 | 9.5 Audit and outstanding-objection settlement | 25 | VERIFIED |
+| SAM-10 | Chapter 10 - Consolidated list of forms in the school accounting manual | 27-29 | VERIFIED |
+| SAM-11 | Chapter 11 - Simplified procedures for school financial transactions and annual statements | 30-33 | VERIFIED |
+| SAM-11-01 | 11.1 Prepare vouchers by budget subheading | 30 | VERIFIED |
+| SAM-11-02 | 11.2 Prepare accounts by budget subheading | 30 | VERIFIED |
+| SAM-11-03 | 11.3 Prepare annual statements by budget subheading | 30 | VERIFIED |
+| SAM-11-04 | 11.4 Types of annual inventory and asset-management statements | 30 | VERIFIED |
+| SAM-11-05 | 11.5 Documents to submit with income/expense vouchers and annual inventory/asset statements | 31 | VERIFIED |
+| SAM-11-06 | 11.6 Tax procedures | 31 | VERIFIED |
+| SAM-11-07 | 11.7 Project-based procurement and production arrangements | 32 | VERIFIED |
+| SAM-11-08 | 11.8 Vehicle-logbook arrangements | 32 | VERIFIED |
+| SAM-11-09 | 11.9 Use of payment stamps | 33 | VERIFIED |
+| SAM-11-10 | 11.10 Travel-report arrangements | 33 | VERIFIED |
+| SAM-11-11 | 11.11 Bank-guarantee management arrangements | 33 | VERIFIED |
 | SAM-ANN-01 | Annex 1 - Income-code classification and explanation | 34-35 | VERIFIED |
 | SAM-ANN-02 | Annex 2 - Expense-code classification and explanation | 36-40 | VERIFIED |
-| SAM-ANN-03 | Annex 3 - Forms list and use method | 41-57 | TO_EXTRACT |
+| SAM-ANN-03 | Annex 3 - Forms list and use method | 41-57 | VERIFIED |
 | SAM-ANN-04 | Annex 4 - Practical accounting knowledge, exercises, and samples | 58-end | VERIFIED |
 
 ## Verified requirements: Chapters 1-3
