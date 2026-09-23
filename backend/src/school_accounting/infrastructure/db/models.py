@@ -199,3 +199,111 @@ class SchoolFund(IdMixin, CreatedAtMixin, Base):
     school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
     name: Mapped[str] = mapped_column(Text, nullable=False)
     status: Mapped[str] = mapped_column(String(30), nullable=False)
+
+
+class RuleSetVersion(IdMixin, Base):
+    __tablename__ = "rule_set_versions"
+    __table_args__ = (
+        UniqueConstraint("rule_key", "version", name="uq_rule_set_versions_rule_key_version"),
+        CheckConstraint("effective_to IS NULL OR effective_to >= effective_from", name="ck_rule_set_versions_effective_range"),
+        CheckConstraint("jsonb_typeof(context) = 'object'", name="ck_rule_set_versions_context_object"),
+        CheckConstraint("status IN ('draft', 'published', 'retired')", name="ck_rule_set_versions_status"),
+        ExcludeConstraint(
+            ("rule_key", "="),
+            (text("daterange(effective_from, effective_to, '[]')"), "&&"),
+            where=text("status = 'published'"),
+            name="ex_rule_set_versions_published_effective_dates",
+        ),
+        Index("ix_rule_set_versions_rule_dates", "rule_key", "effective_from", "effective_to"),
+        Index("ix_rule_set_versions_status", "status"),
+    )
+
+    rule_key: Mapped[str] = mapped_column(String(120), nullable=False)
+    version: Mapped[str] = mapped_column(String(80), nullable=False)
+    effective_from: Mapped[date] = mapped_column(Date, nullable=False)
+    effective_to: Mapped[date | None] = mapped_column(Date)
+    context: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False)
+    source_ref: Mapped[str | None] = mapped_column(Text)
+    status: Mapped[str] = mapped_column(String(30), nullable=False)
+    published_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
+
+class AccountCodeVersion(IdMixin, Base):
+    __tablename__ = "account_code_versions"
+    __table_args__ = (
+        UniqueConstraint("code", "kind", "effective_from", name="uq_account_code_versions_code_kind_effective_from"),
+        CheckConstraint("kind IN ('income', 'expense')", name="ck_account_code_versions_kind"),
+        CheckConstraint("effective_to IS NULL OR effective_to >= effective_from", name="ck_account_code_versions_effective_range"),
+        CheckConstraint("status IN ('draft', 'published', 'retired')", name="ck_account_code_versions_status"),
+        ExcludeConstraint(
+            ("code", "="),
+            ("kind", "="),
+            (text("daterange(effective_from, effective_to, '[]')"), "&&"),
+            where=text("status = 'published'"),
+            name="ex_account_code_versions_published_effective_dates",
+        ),
+        Index("ix_account_code_versions_kind_code_dates", "kind", "code", "effective_from"),
+    )
+
+    code: Mapped[str] = mapped_column(String(20), nullable=False)
+    kind: Mapped[str] = mapped_column(String(10), nullable=False)
+    title: Mapped[str] = mapped_column(Text, nullable=False)
+    meaning: Mapped[str] = mapped_column(Text, nullable=False)
+    effective_from: Mapped[date] = mapped_column(Date, nullable=False)
+    effective_to: Mapped[date | None] = mapped_column(Date)
+    source_ref: Mapped[str | None] = mapped_column(Text)
+    status: Mapped[str] = mapped_column(String(30), nullable=False)
+
+
+class LedgerAccountDefinition(IdMixin, Base):
+    __tablename__ = "ledger_account_definitions"
+    __table_args__ = (
+        UniqueConstraint("semantic_key", "effective_from", name="uq_ledger_account_definitions_semantic_key_effective_from"),
+        CheckConstraint("normal_side IN ('debit', 'credit')", name="ck_ledger_account_definitions_normal_side"),
+        CheckConstraint("effective_to IS NULL OR effective_to >= effective_from", name="ck_ledger_account_definitions_effective_range"),
+        CheckConstraint("jsonb_typeof(rule_context) = 'object'", name="ck_ledger_account_definitions_rule_context_object"),
+        CheckConstraint("status IN ('draft', 'published', 'retired')", name="ck_ledger_account_definitions_status"),
+        ExcludeConstraint(
+            ("semantic_key", "="),
+            (text("daterange(effective_from, effective_to, '[]')"), "&&"),
+            where=text("status = 'published'"),
+            name="ex_ledger_account_definitions_published_effective_dates",
+        ),
+        Index("ix_ledger_account_definitions_semantic_dates", "semantic_key", "effective_from", "effective_to"),
+    )
+
+    semantic_key: Mapped[str] = mapped_column(String(120), nullable=False)
+    name: Mapped[str] = mapped_column(Text, nullable=False)
+    normal_side: Mapped[str] = mapped_column(String(6), nullable=False)
+    effective_from: Mapped[date] = mapped_column(Date, nullable=False)
+    effective_to: Mapped[date | None] = mapped_column(Date)
+    rule_context: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False)
+    status: Mapped[str] = mapped_column(String(30), nullable=False)
+
+
+class OfficialTemplateVersion(IdMixin, Base):
+    __tablename__ = "official_template_versions"
+    __table_args__ = (
+        UniqueConstraint("template_key", "language", "version", name="uq_official_template_versions_key_language_version"),
+        CheckConstraint("effective_to IS NULL OR effective_to >= effective_from", name="ck_official_template_versions_effective_range"),
+        CheckConstraint("status IN ('draft', 'published', 'retired')", name="ck_official_template_versions_status"),
+        Index("ix_official_template_versions_key_language_dates", "template_key", "language", "effective_from"),
+    )
+
+    template_key: Mapped[str] = mapped_column(String(80), nullable=False)
+    language: Mapped[str] = mapped_column(String(10), nullable=False)
+    version: Mapped[str] = mapped_column(String(80), nullable=False)
+    effective_from: Mapped[date] = mapped_column(Date, nullable=False)
+    effective_to: Mapped[date | None] = mapped_column(Date)
+    renderer_ref: Mapped[str] = mapped_column(Text, nullable=False)
+    source_ref: Mapped[str | None] = mapped_column(Text)
+    status: Mapped[str] = mapped_column(String(30), nullable=False)
+
+
+class SupportedLocale(Base):
+    __tablename__ = "supported_locales"
+    __table_args__ = (CheckConstraint("status IN ('active', 'inactive')", name="ck_supported_locales_status"),)
+
+    code: Mapped[str] = mapped_column(String(10), primary_key=True)
+    name: Mapped[str] = mapped_column(Text, nullable=False)
+    status: Mapped[str] = mapped_column(String(30), nullable=False)
