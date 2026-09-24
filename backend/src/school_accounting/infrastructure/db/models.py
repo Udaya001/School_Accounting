@@ -116,6 +116,7 @@ class SchoolMembership(IdMixin, CreatedAtMixin, Base):
 
     school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
     user_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
+    preferred_locale: Mapped[str | None] = mapped_column(String(10), ForeignKey("supported_locales.code"))
     status: Mapped[str] = mapped_column(String(30), nullable=False)
     joined_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
     ended_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
@@ -159,6 +160,7 @@ class SchoolSettings(IdMixin, CreatedAtMixin, Base):
 
     school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
     settings: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, server_default=text("'{}'::jsonb"))
+    default_locale: Mapped[str] = mapped_column(String(10), ForeignKey("supported_locales.code"), nullable=False, server_default=text("'en'"))
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now(), onupdate=func.now())
 
 
@@ -307,6 +309,40 @@ class SupportedLocale(Base):
     code: Mapped[str] = mapped_column(String(10), primary_key=True)
     name: Mapped[str] = mapped_column(Text, nullable=False)
     status: Mapped[str] = mapped_column(String(30), nullable=False)
+
+
+class AccountCodeVersionTranslation(IdMixin, Base):
+    __tablename__ = "account_code_version_translations"
+    __table_args__ = (
+        UniqueConstraint("account_code_version_id", "locale", name="uq_account_code_version_translations_record_locale"),
+    )
+
+    account_code_version_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("account_code_versions.id"), nullable=False)
+    locale: Mapped[str] = mapped_column(String(10), ForeignKey("supported_locales.code"), nullable=False)
+    title: Mapped[str] = mapped_column(Text, nullable=False)
+    meaning: Mapped[str] = mapped_column(Text, nullable=False)
+
+
+class LedgerAccountDefinitionTranslation(IdMixin, Base):
+    __tablename__ = "ledger_account_definition_translations"
+    __table_args__ = (
+        UniqueConstraint("ledger_account_definition_id", "locale", name="uq_ledger_account_definition_translations_record_locale"),
+    )
+
+    ledger_account_definition_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("ledger_account_definitions.id"), nullable=False)
+    locale: Mapped[str] = mapped_column(String(10), ForeignKey("supported_locales.code"), nullable=False)
+    name: Mapped[str] = mapped_column(Text, nullable=False)
+
+
+class PermissionPresetTranslation(IdMixin, Base):
+    __tablename__ = "permission_preset_translations"
+    __table_args__ = (
+        UniqueConstraint("permission_preset_id", "locale", name="uq_permission_preset_translations_record_locale"),
+    )
+
+    permission_preset_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("permission_presets.id"), nullable=False)
+    locale: Mapped[str] = mapped_column(String(10), ForeignKey("supported_locales.code"), nullable=False)
+    name: Mapped[str] = mapped_column(Text, nullable=False)
 
 
 class SchoolLedgerAccount(IdMixin, CreatedAtMixin, Base):
