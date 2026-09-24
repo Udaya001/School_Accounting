@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import date, datetime
 from uuid import UUID, uuid4
 
-from sqlalchemy import BigInteger, CheckConstraint, Date, DateTime, ForeignKey, ForeignKeyConstraint, Index, LargeBinary, String, Text, UniqueConstraint, func, text
+from sqlalchemy import BigInteger, CheckConstraint, Date, DateTime, ForeignKey, ForeignKeyConstraint, Index, LargeBinary, Numeric, String, Text, UniqueConstraint, func, text
 from sqlalchemy.dialects.postgresql import CITEXT, JSONB, ExcludeConstraint, UUID as PG_UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -520,3 +520,140 @@ class ReceiptIssue(IdMixin, CreatedAtMixin, Base):
     issued_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     cancel_reason: Mapped[str | None] = mapped_column(Text)
     replacement_issue_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+
+
+class FinancialDocument(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "financial_documents"
+    __table_args__ = (
+        UniqueConstraint("school_id", "id", name="uq_financial_documents_school_id_id"),
+        ForeignKeyConstraint(["school_id", "fiscal_year_id"], ["fiscal_years.school_id", "fiscal_years.id"], name="fk_financial_documents_fiscal_year_same_school"),
+        ForeignKeyConstraint(["school_id", "party_id"], ["parties.school_id", "parties.id"], name="fk_financial_documents_party_same_school"),
+        ForeignKeyConstraint(["school_id", "bank_account_id"], ["bank_accounts.school_id", "bank_accounts.id"], name="fk_financial_documents_bank_account_same_school"),
+        CheckConstraint("status IN ('draft', 'returned', 'submitted', 'verified', 'approved', 'posted', 'locked')", name="ck_financial_documents_status"),
+        CheckConstraint("status NOT IN ('approved', 'posted', 'locked') OR approved_at IS NOT NULL", name="ck_financial_documents_approved_at"),
+        CheckConstraint("status NOT IN ('posted', 'locked') OR posted_at IS NOT NULL", name="ck_financial_documents_posted_at"),
+        CheckConstraint("status <> 'locked' OR locked_at IS NOT NULL", name="ck_financial_documents_locked_at"),
+        Index("uq_financial_documents_school_fiscal_type_number", "school_id", "fiscal_year_id", "document_type", "document_number", unique=True, postgresql_where=text("document_number IS NOT NULL")),
+        Index("ix_financial_documents_school_status_date", "school_id", "status", "accounting_date"),
+        Index("ix_financial_documents_school_fiscal_type", "school_id", "fiscal_year_id", "document_type"),
+    )
+
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    document_type: Mapped[str] = mapped_column(String(50), nullable=False)
+    document_number: Mapped[str | None] = mapped_column(String(100))
+    fiscal_year_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    accounting_date: Mapped[date] = mapped_column(Date, nullable=False)
+    entered_bs_date: Mapped[str | None] = mapped_column(String(16))
+    status: Mapped[str] = mapped_column(String(30), nullable=False)
+    party_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    bank_account_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    summary: Mapped[str | None] = mapped_column(Text)
+    approved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    posted_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    locked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
+
+class FinancialDocumentItem(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "financial_document_items"
+    __table_args__ = (
+        UniqueConstraint("school_id", "id", name="uq_financial_document_items_school_id_id"),
+        UniqueConstraint("school_id", "document_id", "line_no", name="uq_financial_document_items_school_document_line"),
+        ForeignKeyConstraint(["school_id", "document_id"], ["financial_documents.school_id", "financial_documents.id"], name="fk_financial_document_items_document_same_school"),
+        ForeignKeyConstraint(["school_id", "student_account_id"], ["student_accounts.school_id", "student_accounts.id"], name="fk_financial_document_items_student_same_school"),
+        ForeignKeyConstraint(["school_id", "staff_person_id"], ["staff_people.school_id", "staff_people.id"], name="fk_financial_document_items_staff_same_school"),
+        ForeignKeyConstraint(["school_id", "party_id"], ["parties.school_id", "parties.id"], name="fk_financial_document_items_party_same_school"),
+        CheckConstraint("line_no > 0", name="ck_financial_document_items_line_no_positive"),
+        CheckConstraint("amount >= 0", name="ck_financial_document_items_amount_nonnegative"),
+        CheckConstraint("jsonb_typeof(facts) = 'object'", name="ck_financial_document_items_facts_object"),
+        Index("ix_financial_document_items_school_document", "school_id", "document_id"),
+    )
+
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    document_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    line_no: Mapped[int] = mapped_column(nullable=False)
+    description: Mapped[str | None] = mapped_column(Text)
+    amount: Mapped[object] = mapped_column(Numeric(18, 2), nullable=False)
+    account_code_version_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("account_code_versions.id"))
+    student_account_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    staff_person_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    party_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    facts: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, server_default=text("'{}'::jsonb"))
+
+
+class IncomeReceipt(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "income_receipts"
+    __table_args__ = (
+        UniqueConstraint("school_id", "id", name="uq_income_receipts_school_id_id"),
+        UniqueConstraint("school_id", "document_id", name="uq_income_receipts_school_document"),
+        UniqueConstraint("school_id", "receipt_issue_id", name="uq_income_receipts_school_receipt_issue"),
+        ForeignKeyConstraint(["school_id", "document_id"], ["financial_documents.school_id", "financial_documents.id"], name="fk_income_receipts_document_same_school"),
+        ForeignKeyConstraint(["school_id", "receipt_issue_id"], ["receipt_issues.school_id", "receipt_issues.id"], name="fk_income_receipts_receipt_issue_same_school"),
+        ForeignKeyConstraint(["school_id", "student_account_id"], ["student_accounts.school_id", "student_accounts.id"], name="fk_income_receipts_student_same_school"),
+        ForeignKeyConstraint(["school_id", "payer_party_id"], ["parties.school_id", "parties.id"], name="fk_income_receipts_payer_same_school"),
+        Index("ix_income_receipts_school_student_date", "school_id", "student_account_id", "receipt_date"),
+    )
+
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    document_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    receipt_issue_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    student_account_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    payer_party_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    receipt_date: Mapped[date] = mapped_column(Date, nullable=False)
+
+
+class LifecycleEvent(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "lifecycle_events"
+    __table_args__ = (
+        UniqueConstraint("school_id", "id", name="uq_lifecycle_events_school_id_id"),
+        Index("ix_lifecycle_events_school_target_time", "school_id", "entity_type", "entity_id", "occurred_at"),
+    )
+
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    entity_type: Mapped[str] = mapped_column(String(80), nullable=False)
+    entity_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    from_status: Mapped[str | None] = mapped_column(String(30))
+    to_status: Mapped[str] = mapped_column(String(30), nullable=False)
+    reason: Mapped[str | None] = mapped_column(Text)
+    occurred_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+
+
+class AuthorizationDecision(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "authorization_decisions"
+    __table_args__ = (
+        UniqueConstraint("school_id", "id", name="uq_authorization_decisions_school_id_id"),
+        ForeignKeyConstraint(["school_id", "actor_membership_id"], ["school_memberships.school_id", "school_memberships.id"], name="fk_authorization_decisions_actor_same_school"),
+        CheckConstraint("jsonb_typeof(evidence_metadata) = 'object'", name="ck_authorization_decisions_evidence_metadata_object"),
+        Index("ix_authorization_decisions_school_target_time", "school_id", "target_type", "target_id", "decided_at"),
+        Index("ix_authorization_decisions_school_actor_time", "school_id", "actor_membership_id", "decided_at"),
+    )
+
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    actor_membership_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    target_type: Mapped[str] = mapped_column(String(80), nullable=False)
+    target_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    decision_type: Mapped[str] = mapped_column(String(50), nullable=False)
+    status: Mapped[str] = mapped_column(String(30), nullable=False)
+    decided_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+    reason: Mapped[str | None] = mapped_column(Text)
+    evidence_metadata: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, server_default=text("'{}'::jsonb"))
+
+
+class AuditEvent(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "audit_events"
+    __table_args__ = (
+        UniqueConstraint("school_id", "id", name="uq_audit_events_school_id_id"),
+        ForeignKeyConstraint(["school_id", "actor_membership_id"], ["school_memberships.school_id", "school_memberships.id"], name="fk_audit_events_actor_same_school"),
+        CheckConstraint("jsonb_typeof(metadata) = 'object'", name="ck_audit_events_metadata_object"),
+        Index("ix_audit_events_school_target_time", "school_id", "target_type", "target_id", "occurred_at"),
+        Index("ix_audit_events_school_actor_time", "school_id", "actor_membership_id", "occurred_at"),
+        Index("ix_audit_events_school_action_time", "school_id", "action", "occurred_at"),
+    )
+
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    actor_membership_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    action: Mapped[str] = mapped_column(String(100), nullable=False)
+    target_type: Mapped[str] = mapped_column(String(80), nullable=False)
+    target_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    outcome: Mapped[str | None] = mapped_column(String(30))
+    metadata_: Mapped[dict[str, object]] = mapped_column("metadata", JSONB, nullable=False, server_default=text("'{}'::jsonb"))
+    occurred_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
