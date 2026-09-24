@@ -7,6 +7,7 @@
 | DEC-001 | 2026-09-22 | Treat the School Accounting Manual 2076 PDF as the authoritative source. | The project requires a definitive basis for later requirements. | Accepted |
 | DEC-002 | 2026-09-22 | Maintain a verified requirements register rather than repeatedly consulting the full manual. | It makes implementation work efficient while retaining source references for exact verification. | Accepted |
 | DEC-003 | 2026-09-22 | Defer application code until specification work establishes requirements and scope. | Prevents premature implementation. | Accepted |
+| DEC-004 | 2026-09-24 | Keep `bank_reconciliation_items.journal_line_id` as a nullable reserved UUID and prohibit `confirmed` items until the journal slice exists. | This preserves the final accounting-side match shape without accepting a document-based substitute or an unenforceable journal reference. The journal migration must add the same-school journal-line FK and enable confirmed matches with its posted bank-affecting validation. | Accepted |
 
 ## How to add decisions
 

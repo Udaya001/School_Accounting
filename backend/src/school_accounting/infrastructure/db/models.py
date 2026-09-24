@@ -657,3 +657,142 @@ class AuditEvent(IdMixin, CreatedAtMixin, Base):
     outcome: Mapped[str | None] = mapped_column(String(30))
     metadata_: Mapped[dict[str, object]] = mapped_column("metadata", JSONB, nullable=False, server_default=text("'{}'::jsonb"))
     occurred_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+
+
+class PayrollRun(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "payroll_runs"
+    __table_args__ = (UniqueConstraint("school_id", "id", name="uq_payroll_runs_school_id_id"), UniqueConstraint("school_id", "document_id", name="uq_payroll_runs_school_document"), ForeignKeyConstraint(["school_id", "document_id"], ["financial_documents.school_id", "financial_documents.id"], name="fk_payroll_runs_document_same_school"), CheckConstraint("period_end >= period_start", name="ck_payroll_runs_period_range"), CheckConstraint("status IN ('draft', 'verified', 'approved', 'posted')", name="ck_payroll_runs_status"), Index("ix_payroll_runs_school_period", "school_id", "period_start", "period_end"))
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    document_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    period_start: Mapped[date] = mapped_column(Date, nullable=False)
+    period_end: Mapped[date] = mapped_column(Date, nullable=False)
+    status: Mapped[str] = mapped_column(String(30), nullable=False)
+
+
+class PayrollRunItem(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "payroll_run_items"
+    __table_args__ = (UniqueConstraint("school_id", "id", name="uq_payroll_run_items_school_id_id"), UniqueConstraint("school_id", "payroll_run_id", "line_no", name="uq_payroll_run_items_school_run_line"), ForeignKeyConstraint(["school_id", "payroll_run_id"], ["payroll_runs.school_id", "payroll_runs.id"], name="fk_payroll_run_items_run_same_school"), ForeignKeyConstraint(["school_id", "staff_person_id"], ["staff_people.school_id", "staff_people.id"], name="fk_payroll_run_items_staff_same_school"), CheckConstraint("line_no > 0", name="ck_payroll_run_items_line_no_positive"), CheckConstraint("gross_amount >= 0", name="ck_payroll_run_items_gross_nonnegative"), CheckConstraint("jsonb_typeof(deduction_facts) = 'object'", name="ck_payroll_run_items_deduction_facts_object"), Index("ix_payroll_run_items_school_staff", "school_id", "staff_person_id"))
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    payroll_run_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    line_no: Mapped[int] = mapped_column(nullable=False)
+    staff_person_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    gross_amount: Mapped[object] = mapped_column(Numeric(18, 2), nullable=False)
+    deduction_facts: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, server_default=text("'{}'::jsonb"))
+
+
+class Advance(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "advances"
+    __table_args__ = (UniqueConstraint("school_id", "id", name="uq_advances_school_id_id"), UniqueConstraint("school_id", "document_id", name="uq_advances_school_document"), ForeignKeyConstraint(["school_id", "document_id"], ["financial_documents.school_id", "financial_documents.id"], name="fk_advances_document_same_school"), ForeignKeyConstraint(["school_id", "recipient_party_id"], ["parties.school_id", "parties.id"], name="fk_advances_recipient_same_school"), CheckConstraint("amount >= 0", name="ck_advances_amount_nonnegative"), CheckConstraint("status IN ('draft', 'approved', 'settled', 'cancelled')", name="ck_advances_status"), Index("ix_advances_school_status", "school_id", "status"), Index("ix_advances_school_recipient", "school_id", "recipient_party_id"))
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    document_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    recipient_party_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    amount: Mapped[object] = mapped_column(Numeric(18, 2), nullable=False)
+    status: Mapped[str] = mapped_column(String(30), nullable=False)
+
+
+class AdvanceSettlement(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "advance_settlements"
+    __table_args__ = (UniqueConstraint("school_id", "id", name="uq_advance_settlements_school_id_id"), UniqueConstraint("school_id", "document_id", name="uq_advance_settlements_school_document"), ForeignKeyConstraint(["school_id", "advance_id"], ["advances.school_id", "advances.id"], name="fk_advance_settlements_advance_same_school"), ForeignKeyConstraint(["school_id", "document_id"], ["financial_documents.school_id", "financial_documents.id"], name="fk_advance_settlements_document_same_school"), CheckConstraint("amount >= 0", name="ck_advance_settlements_amount_nonnegative"), Index("ix_advance_settlements_school_advance", "school_id", "advance_id"))
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    advance_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    document_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    amount: Mapped[object] = mapped_column(Numeric(18, 2), nullable=False)
+    settled_on: Mapped[date] = mapped_column(Date, nullable=False)
+
+
+class Deposit(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "deposits"
+    __table_args__ = (UniqueConstraint("school_id", "id", name="uq_deposits_school_id_id"), UniqueConstraint("school_id", "document_id", name="uq_deposits_school_document"), ForeignKeyConstraint(["school_id", "document_id"], ["financial_documents.school_id", "financial_documents.id"], name="fk_deposits_document_same_school"), ForeignKeyConstraint(["school_id", "depositor_party_id"], ["parties.school_id", "parties.id"], name="fk_deposits_depositor_same_school"), CheckConstraint("amount >= 0", name="ck_deposits_amount_nonnegative"), CheckConstraint("status IN ('active', 'refunded', 'forfeited')", name="ck_deposits_status"), Index("ix_deposits_school_status", "school_id", "status"), Index("ix_deposits_school_depositor", "school_id", "depositor_party_id"))
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    document_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    depositor_party_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    amount: Mapped[object] = mapped_column(Numeric(18, 2), nullable=False)
+    status: Mapped[str] = mapped_column(String(30), nullable=False)
+
+
+class DepositRefund(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "deposit_refunds"
+    __table_args__ = (UniqueConstraint("school_id", "id", name="uq_deposit_refunds_school_id_id"), UniqueConstraint("school_id", "document_id", name="uq_deposit_refunds_school_document"), ForeignKeyConstraint(["school_id", "deposit_id"], ["deposits.school_id", "deposits.id"], name="fk_deposit_refunds_deposit_same_school"), ForeignKeyConstraint(["school_id", "document_id"], ["financial_documents.school_id", "financial_documents.id"], name="fk_deposit_refunds_document_same_school"), CheckConstraint("amount >= 0", name="ck_deposit_refunds_amount_nonnegative"), Index("ix_deposit_refunds_school_deposit", "school_id", "deposit_id"))
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    deposit_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    document_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    amount: Mapped[object] = mapped_column(Numeric(18, 2), nullable=False)
+
+
+class TravelOrder(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "travel_orders"
+    __table_args__ = (UniqueConstraint("school_id", "id", name="uq_travel_orders_school_id_id"), UniqueConstraint("school_id", "document_id", name="uq_travel_orders_school_document"), ForeignKeyConstraint(["school_id", "document_id"], ["financial_documents.school_id", "financial_documents.id"], name="fk_travel_orders_document_same_school"), ForeignKeyConstraint(["school_id", "traveller_party_id"], ["parties.school_id", "parties.id"], name="fk_travel_orders_traveller_same_school"), CheckConstraint("to_date IS NULL OR from_date IS NULL OR to_date >= from_date", name="ck_travel_orders_date_range"))
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    document_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    traveller_party_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    from_date: Mapped[date | None] = mapped_column(Date)
+    to_date: Mapped[date | None] = mapped_column(Date)
+    purpose: Mapped[str | None] = mapped_column(Text)
+
+
+class TravelClaim(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "travel_claims"
+    __table_args__ = (UniqueConstraint("school_id", "id", name="uq_travel_claims_school_id_id"), UniqueConstraint("school_id", "document_id", name="uq_travel_claims_school_document"), ForeignKeyConstraint(["school_id", "travel_order_id"], ["travel_orders.school_id", "travel_orders.id"], name="fk_travel_claims_order_same_school"), ForeignKeyConstraint(["school_id", "document_id"], ["financial_documents.school_id", "financial_documents.id"], name="fk_travel_claims_document_same_school"), CheckConstraint("amount >= 0", name="ck_travel_claims_amount_nonnegative"))
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    travel_order_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    document_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    amount: Mapped[object] = mapped_column(Numeric(18, 2), nullable=False)
+    report_submitted_on: Mapped[date | None] = mapped_column(Date)
+
+
+class PettyCashEntry(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "petty_cash_entries"
+    __table_args__ = (UniqueConstraint("school_id", "id", name="uq_petty_cash_entries_school_id_id"), UniqueConstraint("school_id", "document_id", name="uq_petty_cash_entries_school_document"), ForeignKeyConstraint(["school_id", "document_id"], ["financial_documents.school_id", "financial_documents.id"], name="fk_petty_cash_entries_document_same_school"), CheckConstraint("amount >= 0", name="ck_petty_cash_entries_amount_nonnegative"), CheckConstraint("entry_kind IN ('spending', 'replenishment')", name="ck_petty_cash_entries_kind"), Index("ix_petty_cash_entries_school_fund_date", "school_id", "fund_date"))
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    document_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    entry_kind: Mapped[str] = mapped_column(String(30), nullable=False)
+    amount: Mapped[object] = mapped_column(Numeric(18, 2), nullable=False)
+    fund_date: Mapped[date] = mapped_column(Date, nullable=False)
+
+
+class BankStatement(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "bank_statements"
+    __table_args__ = (UniqueConstraint("school_id", "id", name="uq_bank_statements_school_id_id"), UniqueConstraint("school_id", "bank_account_id", "period_start", "period_end", name="uq_bank_statements_school_account_period"), ForeignKeyConstraint(["school_id", "bank_account_id"], ["bank_accounts.school_id", "bank_accounts.id"], name="fk_bank_statements_account_same_school"), ForeignKeyConstraint(["school_id", "fiscal_year_id"], ["fiscal_years.school_id", "fiscal_years.id"], name="fk_bank_statements_fiscal_year_same_school"), CheckConstraint("period_end >= period_start", name="ck_bank_statements_period_range"), CheckConstraint("status IN ('draft', 'verified')", name="ck_bank_statements_status"), Index("ix_bank_statements_school_account_period", "school_id", "bank_account_id", "period_start", "period_end"))
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    bank_account_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    fiscal_year_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    period_start: Mapped[date] = mapped_column(Date, nullable=False)
+    period_end: Mapped[date] = mapped_column(Date, nullable=False)
+    closing_balance: Mapped[object] = mapped_column(Numeric(18, 2), nullable=False)
+    status: Mapped[str] = mapped_column(String(30), nullable=False)
+
+
+class BankStatementLine(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "bank_statement_lines"
+    __table_args__ = (UniqueConstraint("school_id", "id", name="uq_bank_statement_lines_school_id_id"), UniqueConstraint("school_id", "statement_id", "line_no", name="uq_bank_statement_lines_school_statement_line"), ForeignKeyConstraint(["school_id", "statement_id"], ["bank_statements.school_id", "bank_statements.id"], name="fk_bank_statement_lines_statement_same_school"), CheckConstraint("line_no > 0", name="ck_bank_statement_lines_line_no_positive"), Index("uq_bank_statement_lines_school_statement_external_ref", "school_id", "statement_id", "external_line_ref", unique=True, postgresql_where=text("external_line_ref IS NOT NULL")), Index("ix_bank_statement_lines_school_statement", "school_id", "statement_id"))
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    statement_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    line_no: Mapped[int] = mapped_column(nullable=False)
+    transaction_date: Mapped[date] = mapped_column(Date, nullable=False)
+    amount: Mapped[object] = mapped_column(Numeric(18, 2), nullable=False)
+    description: Mapped[str | None] = mapped_column(Text)
+    external_line_ref: Mapped[str | None] = mapped_column(String(160))
+
+
+class BankReconciliation(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "bank_reconciliations"
+    __table_args__ = (UniqueConstraint("school_id", "id", name="uq_bank_reconciliations_school_id_id"), UniqueConstraint("school_id", "statement_id", name="uq_bank_reconciliations_school_statement"), ForeignKeyConstraint(["school_id", "bank_account_id"], ["bank_accounts.school_id", "bank_accounts.id"], name="fk_bank_reconciliations_account_same_school"), ForeignKeyConstraint(["school_id", "statement_id"], ["bank_statements.school_id", "bank_statements.id"], name="fk_bank_reconciliations_statement_same_school"), ForeignKeyConstraint(["school_id", "fiscal_year_id"], ["fiscal_years.school_id", "fiscal_years.id"], name="fk_bank_reconciliations_fiscal_year_same_school"), CheckConstraint("status IN ('draft', 'reconciled')", name="ck_bank_reconciliations_status"), Index("ix_bank_reconciliations_school_account_status", "school_id", "bank_account_id", "status"))
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    bank_account_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    statement_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    fiscal_year_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    as_of_date: Mapped[date] = mapped_column(Date, nullable=False)
+    status: Mapped[str] = mapped_column(String(30), nullable=False)
+
+
+class BankReconciliationItem(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "bank_reconciliation_items"
+    __table_args__ = (UniqueConstraint("school_id", "id", name="uq_bank_reconciliation_items_school_id_id"), ForeignKeyConstraint(["school_id", "reconciliation_id"], ["bank_reconciliations.school_id", "bank_reconciliations.id"], name="fk_bank_reconciliation_items_reconciliation_same_school"), ForeignKeyConstraint(["school_id", "statement_line_id"], ["bank_statement_lines.school_id", "bank_statement_lines.id"], name="fk_bank_reconciliation_items_statement_line_same_school"), ForeignKeyConstraint(["school_id", "source_document_id"], ["financial_documents.school_id", "financial_documents.id"], name="fk_bank_reconciliation_items_source_document_same_school"), CheckConstraint("status IN ('unmatched', 'exception', 'confirmed')", name="ck_bank_reconciliation_items_status"), CheckConstraint("status <> 'confirmed'", name="ck_bank_reconciliation_items_confirmed_deferred_until_journals"), Index("ix_bank_reconciliation_items_school_reconciliation", "school_id", "reconciliation_id"))
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    reconciliation_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    statement_line_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    journal_line_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    source_document_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    difference_amount: Mapped[object] = mapped_column(Numeric(18, 2), nullable=False)
+    explanation: Mapped[str | None] = mapped_column(Text)
+    status: Mapped[str] = mapped_column(String(30), nullable=False)
