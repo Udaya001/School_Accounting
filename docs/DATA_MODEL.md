@@ -13,6 +13,14 @@ This model translates the existing architecture, workflows, permissions, screens
 
 `User` is a global identity and may belong to multiple schools through separate `SchoolMembership` records. Each membership belongs to exactly one school and is school-owned (`school_id` required). Each request/session operates in exactly one explicit school tenant context selected through a membership. `PermissionAssignment` is school-owned (`school_id` required), belongs to a membership, and assigns one or more system-owned `PermissionPreset` values. Presets remain defaults, not a substitute for documented authority or decision evidence.
 
+## Localization
+
+The initial supported locales are standard identifiers `en` and `ne`; locale handling remains extensible for later additions. A school has a default locale, and an individual may optionally have a global user-preferred locale and/or a membership-preferred locale. Resolve the active locale in this order: membership preference, user preference, school default, then system fallback (`en`). A membership preference applies within that school; a user preference applies where no membership preference is set.
+
+Localization does not change accounting identity or workflow behavior. Statuses, document types, codes, amounts, accounting dates, and journal semantics remain canonical and language-neutral. Never persist translated labels (such as Nepali status text) as accounting authority. User-entered names and descriptions remain exactly as entered; transaction fields do not require paired English and Nepali values.
+
+Distinguish these display sources: UI translations map application keys to locale strings; reference-data translations localize display fields of system-controlled canonical records; user-entered text is stored as supplied; official printable template language selects the applicable language-specific `OfficialTemplateVersion`. A translation record points to its canonical system record and locale and does not create another accounting identity or duplicate a rule set, account code, or ledger definition. English and Nepali official forms/reports consume the same financial data through separate template versions. Bikram Sambat calendar interpretation/conversion and Nepali-language localization are independent concerns.
+
 ## Shared concepts
 
 All school-owned aggregates have a stable internal identity, `school_id`, creation/update attribution, and lifecycle history where relevant. Lifecycle timestamps are UTC. A separate `accounting_date` records the business date, and `fiscal_year_id` identifies the fiscal year. The input/display Bikram Sambat date may be retained with its converted accounting date; it is not inferred from an event timestamp.
