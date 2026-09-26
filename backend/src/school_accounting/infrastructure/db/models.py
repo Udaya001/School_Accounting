@@ -823,7 +823,7 @@ class BankReconciliation(IdMixin, CreatedAtMixin, Base):
 
 class BankReconciliationItem(IdMixin, CreatedAtMixin, Base):
     __tablename__ = "bank_reconciliation_items"
-    __table_args__ = (UniqueConstraint("school_id", "id", name="uq_bank_reconciliation_items_school_id_id"), ForeignKeyConstraint(["school_id", "reconciliation_id"], ["bank_reconciliations.school_id", "bank_reconciliations.id"], name="fk_bank_reconciliation_items_reconciliation_same_school"), ForeignKeyConstraint(["school_id", "statement_line_id"], ["bank_statement_lines.school_id", "bank_statement_lines.id"], name="fk_bank_reconciliation_items_statement_line_same_school"), ForeignKeyConstraint(["school_id", "source_document_id"], ["financial_documents.school_id", "financial_documents.id"], name="fk_bank_reconciliation_items_source_document_same_school"), CheckConstraint("status IN ('unmatched', 'exception', 'confirmed')", name="ck_bank_reconciliation_items_status"), CheckConstraint("status <> 'confirmed'", name="ck_bank_reconciliation_items_confirmed_deferred_until_journals"), Index("ix_bank_reconciliation_items_school_reconciliation", "school_id", "reconciliation_id"))
+    __table_args__ = (UniqueConstraint("school_id", "id", name="uq_bank_reconciliation_items_school_id_id"), ForeignKeyConstraint(["school_id", "reconciliation_id"], ["bank_reconciliations.school_id", "bank_reconciliations.id"], name="fk_bank_reconciliation_items_reconciliation_same_school"), ForeignKeyConstraint(["school_id", "statement_line_id"], ["bank_statement_lines.school_id", "bank_statement_lines.id"], name="fk_bank_reconciliation_items_statement_line_same_school"), ForeignKeyConstraint(["school_id", "journal_line_id"], ["journal_lines.school_id", "journal_lines.id"], name="fk_bank_reconciliation_items_journal_line_same_school"), ForeignKeyConstraint(["school_id", "source_document_id"], ["financial_documents.school_id", "financial_documents.id"], name="fk_bank_reconciliation_items_source_document_same_school"), CheckConstraint("status IN ('unmatched', 'exception', 'confirmed')", name="ck_bank_reconciliation_items_status"), Index("ix_bank_reconciliation_items_school_reconciliation", "school_id", "reconciliation_id"))
     school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
     reconciliation_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
     statement_line_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
@@ -832,3 +832,132 @@ class BankReconciliationItem(IdMixin, CreatedAtMixin, Base):
     difference_amount: Mapped[object] = mapped_column(Numeric(18, 2), nullable=False)
     explanation: Mapped[str | None] = mapped_column(Text)
     status: Mapped[str] = mapped_column(String(30), nullable=False)
+
+
+class PostingRequest(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "posting_requests"
+    __table_args__ = (
+        UniqueConstraint("school_id", "id", name="uq_posting_requests_school_id_id"),
+        UniqueConstraint("school_id", "idempotency_key", name="uq_posting_requests_school_idempotency_key"),
+        ForeignKeyConstraint(["school_id", "document_id"], ["financial_documents.school_id", "financial_documents.id"], name="fk_posting_requests_document_same_school"),
+        ForeignKeyConstraint(["school_id", "fiscal_year_id"], ["fiscal_years.school_id", "fiscal_years.id"], name="fk_posting_requests_fiscal_year_same_school"),
+        CheckConstraint("status IN ('pending', 'succeeded', 'failed')", name="ck_posting_requests_status"),
+        CheckConstraint("(status = 'pending' AND finalized_at IS NULL) OR (status IN ('succeeded', 'failed') AND finalized_at IS NOT NULL)", name="ck_posting_requests_finalized_consistency"),
+        Index("ix_posting_requests_school_status_requested", "school_id", "status", "requested_at"),
+        Index("uq_posting_requests_school_document_active", "school_id", "document_id", unique=True, postgresql_where=text("status IN ('pending', 'succeeded')")),
+    )
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    document_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    fiscal_year_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    accounting_date: Mapped[date] = mapped_column(Date, nullable=False)
+    rule_set_version_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("rule_set_versions.id"), nullable=False)
+    idempotency_key: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    status: Mapped[str] = mapped_column(String(30), nullable=False)
+    requested_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+    finalized_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+
+
+class PostingResult(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "posting_results"
+    __table_args__ = (
+        UniqueConstraint("school_id", "id", name="uq_posting_results_school_id_id"),
+        UniqueConstraint("school_id", "posting_request_id", name="uq_posting_results_school_request"),
+        ForeignKeyConstraint(["school_id", "posting_request_id"], ["posting_requests.school_id", "posting_requests.id"], name="fk_posting_results_request_same_school"),
+        CheckConstraint("jsonb_typeof(rule_context) = 'object'", name="ck_posting_results_rule_context_object"),
+        CheckConstraint("jsonb_typeof(account_code_context) = 'object'", name="ck_posting_results_account_code_context_object"),
+        Index("ix_posting_results_school_result_hash", "school_id", "result_hash"),
+        Index("ix_posting_results_derived_at", "derived_at"),
+    )
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    posting_request_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    rule_context: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False)
+    account_code_context: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False)
+    result_hash: Mapped[bytes] = mapped_column(LargeBinary, nullable=False)
+    derived_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+
+
+class JournalEntry(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "journal_entries"
+    __table_args__ = (
+        UniqueConstraint("school_id", "id", name="uq_journal_entries_school_id_id"),
+        UniqueConstraint("school_id", "posting_result_id", name="uq_journal_entries_school_result"),
+        ForeignKeyConstraint(["school_id", "posting_result_id"], ["posting_results.school_id", "posting_results.id"], name="fk_journal_entries_result_same_school"),
+        ForeignKeyConstraint(["school_id", "fiscal_year_id"], ["fiscal_years.school_id", "fiscal_years.id"], name="fk_journal_entries_fiscal_year_same_school"),
+        Index("ix_journal_entries_school_fiscal_date", "school_id", "fiscal_year_id", "accounting_date"),
+        Index("ix_journal_entries_posted_at", "posted_at"),
+        Index("ix_journal_entries_school_entry_hash", "school_id", "entry_hash"),
+    )
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    posting_result_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    fiscal_year_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    accounting_date: Mapped[date] = mapped_column(Date, nullable=False)
+    description: Mapped[str | None] = mapped_column(Text)
+    posted_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+    entry_hash: Mapped[bytes] = mapped_column(LargeBinary, nullable=False)
+
+
+class JournalLine(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "journal_lines"
+    __table_args__ = (
+        UniqueConstraint("school_id", "id", name="uq_journal_lines_school_id_id"),
+        UniqueConstraint("school_id", "journal_entry_id", "line_no", name="uq_journal_lines_school_entry_line"),
+        ForeignKeyConstraint(["school_id", "journal_entry_id"], ["journal_entries.school_id", "journal_entries.id"], name="fk_journal_lines_entry_same_school"),
+        ForeignKeyConstraint(["school_id", "ledger_account_id"], ["school_ledger_accounts.school_id", "school_ledger_accounts.id"], name="fk_journal_lines_ledger_same_school"),
+        CheckConstraint("line_no > 0", name="ck_journal_lines_line_no_positive"),
+        CheckConstraint("(debit_amount > 0 AND credit_amount = 0) OR (credit_amount > 0 AND debit_amount = 0)", name="ck_journal_lines_exactly_one_positive_side"),
+        CheckConstraint("jsonb_typeof(classification_context) = 'object'", name="ck_journal_lines_classification_context_object"),
+        Index("ix_journal_lines_school_ledger", "school_id", "ledger_account_id"),
+        Index("ix_journal_lines_account_code_version", "account_code_version_id"),
+    )
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    journal_entry_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    line_no: Mapped[int] = mapped_column(nullable=False)
+    ledger_account_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    account_code_version_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("account_code_versions.id"))
+    debit_amount: Mapped[object] = mapped_column(Numeric(18, 2), nullable=False, server_default=text("0"))
+    credit_amount: Mapped[object] = mapped_column(Numeric(18, 2), nullable=False, server_default=text("0"))
+    classification_context: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, server_default=text("'{}'::jsonb"))
+
+
+class CorrectionLink(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "correction_links"
+    __table_args__ = (
+        UniqueConstraint("school_id", "id", name="uq_correction_links_school_id_id"),
+        UniqueConstraint("school_id", "correcting_document_id", name="uq_correction_links_school_correcting_document"),
+        ForeignKeyConstraint(["school_id", "original_document_id"], ["financial_documents.school_id", "financial_documents.id"], name="fk_correction_links_original_document_same_school"),
+        ForeignKeyConstraint(["school_id", "correcting_document_id"], ["financial_documents.school_id", "financial_documents.id"], name="fk_correction_links_correcting_document_same_school"),
+        ForeignKeyConstraint(["school_id", "original_entry_id"], ["journal_entries.school_id", "journal_entries.id"], name="fk_correction_links_original_entry_same_school"),
+        ForeignKeyConstraint(["school_id", "correcting_entry_id"], ["journal_entries.school_id", "journal_entries.id"], name="fk_correction_links_correcting_entry_same_school"),
+        CheckConstraint("original_document_id <> correcting_document_id", name="ck_correction_links_not_self_document"),
+        CheckConstraint("original_entry_id IS NOT NULL AND correcting_entry_id IS NOT NULL AND original_entry_id <> correcting_entry_id", name="ck_correction_links_entries"),
+        CheckConstraint("correction_type IN ('reversal', 'adjustment', 'replacement')", name="ck_correction_links_type"),
+        Index("ix_correction_links_school_original_document", "school_id", "original_document_id"),
+        Index("ix_correction_links_school_original_entry", "school_id", "original_entry_id"),
+    )
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    original_document_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    correcting_document_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    original_entry_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    correcting_entry_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    correction_type: Mapped[str] = mapped_column(String(30), nullable=False)
+    reason: Mapped[str] = mapped_column(Text, nullable=False)
+    linked_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, server_default=func.now())
+
+
+class IdempotencyRecord(IdMixin, CreatedAtMixin, Base):
+    __tablename__ = "idempotency_records"
+    __table_args__ = (
+        UniqueConstraint("school_id", "id", name="uq_idempotency_records_school_id_id"),
+        UniqueConstraint("school_id", "operation_key", name="uq_idempotency_records_school_operation_key"),
+        ForeignKeyConstraint(["school_id", "posting_request_id"], ["posting_requests.school_id", "posting_requests.id"], name="fk_idempotency_records_request_same_school"),
+        CheckConstraint("result_status IN ('in_progress', 'completed', 'failed')", name="ck_idempotency_records_status"),
+        CheckConstraint("(result_status = 'in_progress' AND completed_at IS NULL) OR (result_status IN ('completed', 'failed') AND completed_at IS NOT NULL)", name="ck_idempotency_records_completion_consistency"),
+        Index("ix_idempotency_records_school_fingerprint", "school_id", "request_fingerprint"),
+        Index("ix_idempotency_records_completion", "completed_at"),
+    )
+    school_id: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), ForeignKey("schools.id"), nullable=False)
+    operation_key: Mapped[UUID] = mapped_column(PG_UUID(as_uuid=True), nullable=False)
+    request_fingerprint: Mapped[bytes] = mapped_column(LargeBinary, nullable=False)
+    posting_request_id: Mapped[UUID | None] = mapped_column(PG_UUID(as_uuid=True))
+    result_status: Mapped[str] = mapped_column(String(30), nullable=False)
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
